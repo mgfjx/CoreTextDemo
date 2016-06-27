@@ -47,8 +47,9 @@
     NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:17]};
     
     [attributeStr setAttributes:attributes range:NSMakeRange(0, attributeStr.length)];
-    [attributeStr addAttribute:NSForegroundColorAttributeName value:(id)[UIColor colorWithRed:0.167 green:0.768 blue:0.067 alpha:1.000] range:NSMakeRange(15, 10)];
-    [attributeStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Courier-Oblique" size:24] range:NSMakeRange(27, 10)];
+    [attributeStr addAttribute:NSForegroundColorAttributeName value:(id)[UIColor colorWithRed:0.167 green:0.768 blue:0.067 alpha:1.000] range:NSMakeRange(20, 10)];
+    [attributeStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Courier-Oblique" size:24] range:NSMakeRange(35, 10)];
+    [attributeStr addAttribute:NSUnderlineStyleAttributeName value:@(NSUnderlineStyleSingle) range:NSMakeRange(0, attributeStr.length)];
     
     view.attributeText = attributeStr;
     
