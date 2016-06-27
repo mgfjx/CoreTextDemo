@@ -23,7 +23,7 @@
     
     NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:30],NSForegroundColorAttributeName:[UIColor colorWithRed:0.118 green:0.713 blue:0.238 alpha:1.000]};
     
-    [attributeStr setAttributes:dic range:NSMakeRange(0, attributeStr.length)];
+    [attributeStr setAttributes:dic range:NSMakeRange(0, attributeStr.length - 2)];
     
     CTFramesetterRef frameSetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)attributeStr);
     CGMutablePathRef path = CGPathCreateMutable();
@@ -31,6 +31,10 @@
     NSInteger length = attributeStr.length;
     
     CTFrameRef frame = CTFramesetterCreateFrame(frameSetter, CFRangeMake(0, length), path, NULL);
+    
+    NSArray *arrLines = (NSArray *)CTFrameGetLines(frame);
+    
+    
     CTFrameDraw(frame, context);
     
     CFRelease(frame);
