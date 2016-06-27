@@ -11,6 +11,22 @@
 
 @implementation CTView
 
+#pragma mark - laysy load
+- (void)setText:(NSString *)text{
+    _text = text;
+    [self setNeedsDisplay];
+}
+
+- (void)setInsertIndex:(NSInteger)insertIndex{
+    _insertIndex = insertIndex;
+    [self setNeedsDisplay];
+}
+
+- (void)setAttributeText:(NSAttributedString *)attributeText{
+    _attributeText = attributeText;
+    [self setNeedsDisplay];
+}
+
 - (void)drawRect:(CGRect)rect{
     [super drawRect:rect];
     
@@ -19,7 +35,13 @@
     CGContextTranslateCTM(context, 0, self.bounds.size.height);//将画布向上平移一个屏幕的距离
     CGContextScaleCTM(context, 1.0, -1.0);//缩放方法，x轴缩放系数为1，则不变，y轴缩放系数为-1，相当于以x轴为轴旋转180度
     
-    NSMutableAttributedString *attribueStr = [[NSMutableAttributedString alloc] initWithString:@"\n这里在测试图文混排，\n我是富文本"];
+    NSMutableAttributedString *attribueStr = nil;
+    if (self.attributeText) {
+        attribueStr = [self.attributeText mutableCopy];
+    }
+    if (self.text) {
+        attribueStr = [[NSMutableAttributedString alloc] initWithString:self.text];
+    }
     
     /*
      设置一个回调结构体，告诉代理该回调那些方法
@@ -36,7 +58,7 @@
     /*
      创建一个代理
      */
-    NSDictionary *dicPic = @{@"height":@20,@"width":@20};//创建一个图片尺寸的字典，初始化代理对象需要
+    NSDictionary *dicPic = @{@"height":@50,@"width":@50};//创建一个图片尺寸的字典，初始化代理对象需要
     CTRunDelegateRef delegate = CTRunDelegateCreate(&callbacks, (void *)dicPic);
     
     //图片插入
@@ -46,7 +68,7 @@
     CFAttributedStringSetAttribute((CFMutableAttributedStringRef)placeHolderAttrStr, CFRangeMake(0, 1), kCTRunDelegateAttributeName, delegate);//给字符串中的范围中字符串设置代理
     CFRelease(delegate);
     
-    [attribueStr insertAttributedString:placeHolderAttrStr atIndex:12];//将占位符插入原富文本
+    [attribueStr insertAttributedString:placeHolderAttrStr atIndex:self.insertIndex];//将占位符插入原富文本
     
     
     //绘制文本
