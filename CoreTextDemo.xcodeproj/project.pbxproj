@@ -15,6 +15,7 @@
 		EC99F1D41D20AB440076E1F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC99F1D21D20AB440076E1F3 /* LaunchScreen.storyboard */; };
 		EC99F1DD1D20B8990076E1F3 /* CTView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC99F1DC1D20B8990076E1F3 /* CTView.m */; };
 		EC99F1DF1D20CD2E0076E1F3 /* exp.png in Resources */ = {isa = PBXBuildFile; fileRef = EC99F1DE1D20CD2E0076E1F3 /* exp.png */; };
+		EC99F1E31D212CAF0076E1F3 /* CTAPIView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC99F1E21D212CAF0076E1F3 /* CTAPIView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		EC99F1DB1D20B8990076E1F3 /* CTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTView.h; sourceTree = "<group>"; };
 		EC99F1DC1D20B8990076E1F3 /* CTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTView.m; sourceTree = "<group>"; };
 		EC99F1DE1D20CD2E0076E1F3 /* exp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exp.png; sourceTree = "<group>"; };
+		EC99F1E11D212CAF0076E1F3 /* CTAPIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAPIView.h; sourceTree = "<group>"; };
+		EC99F1E21D212CAF0076E1F3 /* CTAPIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAPIView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,8 @@
 				EC99F1CB1D20AB440076E1F3 /* ViewController.m */,
 				EC99F1DB1D20B8990076E1F3 /* CTView.h */,
 				EC99F1DC1D20B8990076E1F3 /* CTView.m */,
+				EC99F1E11D212CAF0076E1F3 /* CTAPIView.h */,
+				EC99F1E21D212CAF0076E1F3 /* CTAPIView.m */,
 				EC99F1CD1D20AB440076E1F3 /* Main.storyboard */,
 				EC99F1DE1D20CD2E0076E1F3 /* exp.png */,
 				EC99F1D01D20AB440076E1F3 /* Assets.xcassets */,
@@ -158,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC99F1E31D212CAF0076E1F3 /* CTAPIView.m in Sources */,
 				EC99F1CC1D20AB440076E1F3 /* ViewController.m in Sources */,
 				EC99F1DD1D20B8990076E1F3 /* CTView.m in Sources */,
 				EC99F1C91D20AB440076E1F3 /* AppDelegate.m in Sources */,

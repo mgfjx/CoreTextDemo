@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "CTView.h"
+#import "CTAPIView.h"
 
 @interface ViewController ()
 
@@ -36,6 +37,11 @@
 }
 
 - (void)clickBtn:(UIButton *)sender{
+    
+    CTAPIView *apiView = [[CTAPIView alloc] init];
+    apiView.frame = CGRectMake(220, 100, 100, 100);
+    apiView.backgroundColor = [UIColor colorWithRed:0.912 green:0.678 blue:0.643 alpha:1.000];
+    [self.view addSubview:apiView];
     
     CTView *view = [[CTView alloc] initWithFrame:CGRectMake(100, 250, 200, 200)];
     view.backgroundColor = [UIColor colorWithRed:0.902 green:0.951 blue:0.971 alpha:1.000];
