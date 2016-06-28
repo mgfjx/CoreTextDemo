@@ -9,6 +9,10 @@
 #import "ViewController.h"
 #import "CTView.h"
 #import "CTAPIView.h"
+#import "CTDisplayView.h"
+#import "CTFrameParser.h"
+#import "CTFrameParserConfig.h"
+#import "CoreTextData.h"
 
 @interface ViewController ()
 
@@ -38,17 +42,14 @@
 
 - (void)clickBtn:(UIButton *)sender{
     
-    CTAPIView *apiView = [[CTAPIView alloc] init];
-    apiView.frame = CGRectMake(220, 100, 100, 100);
-    apiView.backgroundColor = [UIColor colorWithRed:0.912 green:0.678 blue:0.643 alpha:1.000];
-    [self.view addSubview:apiView];
     
-    CTView *view = [[CTView alloc] initWithFrame:CGRectMake(100, 250, 200, 200)];
+    CTDisplayView *view = [[CTDisplayView alloc] initWithFrame:CGRectMake(100, 250, 200, 200)];
     view.backgroundColor = [UIColor colorWithRed:0.902 green:0.951 blue:0.971 alpha:1.000];
-    view.insertIndex = 15;
     [self.view addSubview:view];
     
-    NSMutableAttributedString *attributeStr = [[NSMutableAttributedString alloc] initWithString:@"'It’s crucial that you ask about training before you accept the job,' said Steve Jeffers, HR director at Meridian Business Support. 'Let’s face it, you won’t want to go in a role and stay there indefinitely – you’re likely to want a promotion at some point. By asking at the interview stages you can understand how you will progress through the company from the offset.'"];
+    NSString *content = @"'It’s crucial that you ask about training before you accept the job,' said Steve Jeffers, HR director at Meridian Business Support. 'Let’s face it, you won’t want to go in a role and stay there indefinitely – you’re likely to want a promotion at some point. By asking at the interview stages you can understand how you will progress through the company from the offset.'";
+    
+    NSMutableAttributedString *attributeStr = [[NSMutableAttributedString alloc] initWithString:content];
     
     NSDictionary *attributes = @{NSFontAttributeName:[UIFont systemFontOfSize:17]};
     
@@ -57,7 +58,12 @@
     [attributeStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Courier-Oblique" size:24] range:NSMakeRange(35, 10)];
     [attributeStr addAttribute:NSUnderlineStyleAttributeName value:@(NSUnderlineStyleSingle) range:NSMakeRange(0, attributeStr.length)];
     
-    view.attributeText = attributeStr;
+    CTFrameParserConfig *config = [[CTFrameParserConfig alloc] init];
+    config.lineSpace = -1.0f;
+    config.fontSize = 20;
+    config.textColor = [UIColor colorWithRed:0.120 green:0.729 blue:0.112 alpha:1.000];
+    CoreTextData *data = [CTFrameParser parserContent:content config:config];
+    view.coreTextData = data;
     
 }
 
