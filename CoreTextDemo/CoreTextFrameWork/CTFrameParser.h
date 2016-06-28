@@ -14,4 +14,8 @@
 
 + (CoreTextData *)parserContent:(NSString *)content config:(CTFrameParserConfig *)config;
 
++ (CoreTextData *)parserAttributeContent:(NSAttributedString *)content config:(CTFrameParserConfig *)config;
+
++ (CoreTextData *)parserTemplateFile:(NSString *)path config:(CTFrameParserConfig *)config;
+
 @end

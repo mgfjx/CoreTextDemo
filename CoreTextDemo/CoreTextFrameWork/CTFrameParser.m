@@ -10,11 +10,9 @@
 
 @implementation CTFrameParser
 
-+ (CoreTextData *)parserContent:(NSString *)content config:(CTFrameParserConfig *)config{
++ (CoreTextData *)parserAttributeContent:(NSAttributedString *)content config:(CTFrameParserConfig *)config{
     
-    NSDictionary *attributes = [self attributesWithConfig:config];
-    
-    NSMutableAttributedString *contentString = [[NSMutableAttributedString alloc] initWithString:content attributes:attributes];
+    NSMutableAttributedString *contentString = [content mutableCopy];
     
     CTFramesetterRef frameSetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)contentString);
     
@@ -30,6 +28,18 @@
     CoreTextData *data = [[CoreTextData alloc] init];
     data.ctFrame = frame;
     data.height = textHeight;
+    
+    return data;
+    
+}
+
++ (CoreTextData *)parserContent:(NSString *)content config:(CTFrameParserConfig *)config{
+    
+    NSDictionary *attributes = [self attributesWithConfig:config];
+    
+    NSMutableAttributedString *contentString = [[NSMutableAttributedString alloc] initWithString:content attributes:attributes];
+    
+    CoreTextData *data = [self parserAttributeContent:contentString config:config];
     
     return data;
 }
@@ -75,6 +85,65 @@
     CFRelease(path);
     
     return frame;
+}
+
+#pragma mark - parser localFile
++ (CoreTextData *)parserTemplateFile:(NSString *)path config:(CTFrameParserConfig *)config{
+    
+    NSAttributedString *content = [self loadTemplateFile:path config:config];
+    return [self parserAttributeContent:content config:config];
+}
+
++ (NSAttributedString *)loadTemplateFile:(NSString *)path config:(CTFrameParserConfig *)config{
+    
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSMutableAttributedString *result = [[NSMutableAttributedString alloc] init];
+    if (data) {
+        
+        NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        if ([array isKindOfClass:[NSArray class]]) {
+            for (NSDictionary *dict in array) {
+                NSString *type = dict[@"type"];
+                if ([type isEqualToString:@"txt"]) {
+                    NSAttributedString *as = [self parserAttributeContentFromDictionary:dict config:config];
+                    [result appendAttributedString:as];
+                }
+            }
+        }
+        
+    }
+    return result;
+}
+
++ (NSAttributedString *)parserAttributeContentFromDictionary:(NSDictionary *)dict config:(CTFrameParserConfig *)config{
+    
+    NSMutableDictionary *attributes = [[self attributesWithConfig:config] mutableCopy];
+    UIColor *color = [self colorFromTemplate:dict[@"color"]];
+    
+    if (color) {
+        attributes[NSForegroundColorAttributeName] = color;
+    }
+    
+    CGFloat fontSize = [dict[@"fsize"] floatValue];
+    if (fontSize > 0) {
+        attributes[NSFontAttributeName] = [UIFont systemFontOfSize:fontSize];
+    }
+    
+    NSString *content = dict[@"content"];
+    
+    return [[NSAttributedString alloc] initWithString:content attributes:attributes];
+}
+
++ (UIColor *)colorFromTemplate:(NSString *)colorStr{
+    
+    if ([colorStr isEqualToString:@"red"]) {
+        return [UIColor redColor];
+    }else if([colorStr isEqualToString:@"blue"]) {
+        return [UIColor blueColor];
+    }else if([colorStr isEqualToString:@"black"]) {
+        return [UIColor blackColor];
+    }
+    return nil;
 }
 
 @end

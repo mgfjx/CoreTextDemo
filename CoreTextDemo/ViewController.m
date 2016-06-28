@@ -62,7 +62,7 @@
     config.lineSpace = -1.0f;
     config.fontSize = 13;
     config.textColor = [UIColor colorWithRed:0.120 green:0.729 blue:0.112 alpha:1.000];
-    CoreTextData *data = [CTFrameParser parserContent:content config:config];
+    CoreTextData *data = [CTFrameParser parserAttributeContent:attributeStr config:config];
     view.coreTextData = data;
     
     view.height = data.height;
