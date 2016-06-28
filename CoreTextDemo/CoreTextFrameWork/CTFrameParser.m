@@ -8,6 +8,8 @@
 
 #import "CTFrameParser.h"
 
+#define FontName @"AmericanTypewriter"
+
 @implementation CTFrameParser
 
 + (CoreTextData *)parserAttributeContent:(NSAttributedString *)content config:(CTFrameParserConfig *)config{
@@ -48,7 +50,7 @@
     
     CGFloat fonSize = config.fontSize;
     
-    CTFontRef fontRef = CTFontCreateWithName((CFStringRef)@"ArialMT", fonSize, NULL);
+    CTFontRef fontRef = CTFontCreateWithName((CFStringRef)FontName, fonSize, NULL);
     
     CGFloat lineSpacing = config.lineSpace;
     
@@ -126,7 +128,7 @@
     
     CGFloat fontSize = [dict[@"size"] floatValue];
     if (fontSize > 0) {
-        CTFontRef fontRef = CTFontCreateWithName((CFStringRef)@"ArialMT", fontSize, NULL);
+        CTFontRef fontRef = CTFontCreateWithName((CFStringRef)FontName, fontSize, NULL);
         attributes[NSFontAttributeName] = (__bridge id _Nullable)(fontRef);
         CFRelease(fontRef);
     }

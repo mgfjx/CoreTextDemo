@@ -23,4 +23,22 @@
     "size":"13",
     "type":"txt"
     },
+    {
+    "color":"blue",
+    "content":"这是一段测试文字",
+    "size":"3",
+    "type":"txt"
+    },
+    {
+    "color":"black",
+    "content":"这是一段测试文字",
+    "size":"36",
+    "type":"txt"
+    },
+    {
+    "color":"red",
+    "content":"这是一段测试文字",
+    "size":"13",
+    "type":"txt"
+    },
 ]
