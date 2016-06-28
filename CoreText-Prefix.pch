@@ -12,6 +12,7 @@
     #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <CoreText/CoreText.h>
+    #import "UIView+SetFrame.h"
     #endif
 
 #endif /* CoreText_Prefix_pch */
