@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC60380B1D224D040097FE81 /* CTFrameParserConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EC60380A1D224D040097FE81 /* CTFrameParserConfig.m */; };
+		EC60380E1D224E310097FE81 /* CTFrameParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EC60380D1D224E310097FE81 /* CTFrameParser.m */; };
+		EC6038111D22556C0097FE81 /* CoreTextData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6038101D22556C0097FE81 /* CoreTextData.m */; };
+		EC6038141D2257010097FE81 /* CTDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6038131D2257010097FE81 /* CTDisplayView.m */; };
 		EC99F1C61D20AB440076E1F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC99F1C51D20AB440076E1F3 /* main.m */; };
 		EC99F1C91D20AB440076E1F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC99F1C81D20AB440076E1F3 /* AppDelegate.m */; };
 		EC99F1CC1D20AB440076E1F3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC99F1CB1D20AB440076E1F3 /* ViewController.m */; };
@@ -19,6 +23,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC6038071D22463C0097FE81 /* CoreText-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreText-Prefix.pch"; sourceTree = "<group>"; };
+		EC6038091D224D040097FE81 /* CTFrameParserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFrameParserConfig.h; sourceTree = "<group>"; };
+		EC60380A1D224D040097FE81 /* CTFrameParserConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFrameParserConfig.m; sourceTree = "<group>"; };
+		EC60380C1D224E310097FE81 /* CTFrameParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFrameParser.h; sourceTree = "<group>"; };
+		EC60380D1D224E310097FE81 /* CTFrameParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFrameParser.m; sourceTree = "<group>"; };
+		EC60380F1D22556C0097FE81 /* CoreTextData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextData.h; sourceTree = "<group>"; };
+		EC6038101D22556C0097FE81 /* CoreTextData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextData.m; sourceTree = "<group>"; };
+		EC6038121D2257010097FE81 /* CTDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTDisplayView.h; sourceTree = "<group>"; };
+		EC6038131D2257010097FE81 /* CTDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTDisplayView.m; sourceTree = "<group>"; };
 		EC99F1C11D20AB440076E1F3 /* CoreTextDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreTextDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC99F1C51D20AB440076E1F3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EC99F1C71D20AB440076E1F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -47,9 +60,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC6038081D224CDC0097FE81 /* CoreTextFrameWork */ = {
+			isa = PBXGroup;
+			children = (
+				EC6038091D224D040097FE81 /* CTFrameParserConfig.h */,
+				EC60380A1D224D040097FE81 /* CTFrameParserConfig.m */,
+				EC60380C1D224E310097FE81 /* CTFrameParser.h */,
+				EC60380D1D224E310097FE81 /* CTFrameParser.m */,
+				EC60380F1D22556C0097FE81 /* CoreTextData.h */,
+				EC6038101D22556C0097FE81 /* CoreTextData.m */,
+				EC6038121D2257010097FE81 /* CTDisplayView.h */,
+				EC6038131D2257010097FE81 /* CTDisplayView.m */,
+			);
+			path = CoreTextFrameWork;
+			sourceTree = "<group>";
+		};
 		EC99F1B81D20AB430076E1F3 = {
 			isa = PBXGroup;
 			children = (
+				EC6038071D22463C0097FE81 /* CoreText-Prefix.pch */,
 				EC99F1C31D20AB440076E1F3 /* CoreTextDemo */,
 				EC99F1C21D20AB440076E1F3 /* Products */,
 			);
@@ -74,6 +103,7 @@
 				EC99F1DC1D20B8990076E1F3 /* CTView.m */,
 				EC99F1E11D212CAF0076E1F3 /* CTAPIView.h */,
 				EC99F1E21D212CAF0076E1F3 /* CTAPIView.m */,
+				EC6038081D224CDC0097FE81 /* CoreTextFrameWork */,
 				EC99F1CD1D20AB440076E1F3 /* Main.storyboard */,
 				EC99F1DE1D20CD2E0076E1F3 /* exp.png */,
 				EC99F1D01D20AB440076E1F3 /* Assets.xcassets */,
@@ -164,10 +194,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC99F1E31D212CAF0076E1F3 /* CTAPIView.m in Sources */,
+				EC6038141D2257010097FE81 /* CTDisplayView.m in Sources */,
+				EC6038111D22556C0097FE81 /* CoreTextData.m in Sources */,
 				EC99F1CC1D20AB440076E1F3 /* ViewController.m in Sources */,
 				EC99F1DD1D20B8990076E1F3 /* CTView.m in Sources */,
 				EC99F1C91D20AB440076E1F3 /* AppDelegate.m in Sources */,
 				EC99F1C61D20AB440076E1F3 /* main.m in Sources */,
+				EC60380E1D224E310097FE81 /* CTFrameParser.m in Sources */,
+				EC60380B1D224D040097FE81 /* CTFrameParserConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +315,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/CoreText-Prefix.pch";
 				INFOPLIST_FILE = CoreTextDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiexiaolong.CoreTextDemo;
@@ -292,6 +328,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/CoreText-Prefix.pch";
 				INFOPLIST_FILE = CoreTextDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiexiaolong.CoreTextDemo;
@@ -318,6 +356,7 @@
 				EC99F1DA1D20AB440076E1F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

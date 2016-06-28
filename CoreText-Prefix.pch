@@ -1,0 +1,17 @@
+//
+//  CoreText-Prefix.pch
+//  CoreTextDemo
+//
+//  Created by 谢小龙 on 16/6/28.
+//  Copyright © 2016年 XXL. All rights reserved.
+//
+
+#ifndef CoreText_Prefix_pch
+#define CoreText_Prefix_pch
+
+    #ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <CoreText/CoreText.h>
+    #endif
+
+#endif /* CoreText_Prefix_pch */
