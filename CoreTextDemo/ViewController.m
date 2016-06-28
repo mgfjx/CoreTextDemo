@@ -58,11 +58,13 @@
     [attributeStr addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Courier-Oblique" size:24] range:NSMakeRange(35, 10)];
     [attributeStr addAttribute:NSUnderlineStyleAttributeName value:@(NSUnderlineStyleSingle) range:NSMakeRange(0, attributeStr.length)];
     
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"modelData" ofType:nil];
+    
     CTFrameParserConfig *config = [[CTFrameParserConfig alloc] init];
     config.lineSpace = -1.0f;
-    config.fontSize = 13;
+//    config.fontSize = 13;
     config.textColor = [UIColor colorWithRed:0.120 green:0.729 blue:0.112 alpha:1.000];
-    CoreTextData *data = [CTFrameParser parserAttributeContent:attributeStr config:config];
+    CoreTextData *data = [CTFrameParser parserTemplateFile:path config:config];
     view.coreTextData = data;
     
     view.height = data.height;

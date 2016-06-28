@@ -124,9 +124,11 @@
         attributes[NSForegroundColorAttributeName] = color;
     }
     
-    CGFloat fontSize = [dict[@"fsize"] floatValue];
+    CGFloat fontSize = [dict[@"size"] floatValue];
     if (fontSize > 0) {
-        attributes[NSFontAttributeName] = [UIFont systemFontOfSize:fontSize];
+        CTFontRef fontRef = CTFontCreateWithName((CFStringRef)@"ArialMT", fontSize, NULL);
+        attributes[NSFontAttributeName] = (__bridge id _Nullable)(fontRef);
+        CFRelease(fontRef);
     }
     
     NSString *content = dict[@"content"];
