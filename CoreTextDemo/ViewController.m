@@ -73,4 +73,22 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(coreTextImageClicked:) name:NOTIFICATION_IMAGECLICK object:nil];
+}
+
+- (void)coreTextImageClicked:(NSNotification *)notification{
+    
+    NSDictionary *info = notification.userInfo;
+    
+    NSLog(@"%@",info);
+    
+    ScanImageViewController *vc = [[ScanImageViewController alloc] init];
+    vc.imageName = info[@"imageName"];
+    [self presentViewController:vc animated:YES completion:nil];
+    
+}
+
 @end

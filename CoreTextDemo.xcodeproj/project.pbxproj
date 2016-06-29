@@ -27,6 +27,8 @@
 		ECD7BF051D23948D007787CF /* sdxl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ECD7BF021D23948D007787CF /* sdxl.jpg */; };
 		ECD7BF081D239762007787CF /* gtl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ECD7BF061D239762007787CF /* gtl.jpg */; };
 		ECD7BF091D239762007787CF /* lrt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ECD7BF071D239762007787CF /* lrt.jpg */; };
+		ECD7BF0D1D23A231007787CF /* ScanImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD7BF0C1D23A231007787CF /* ScanImageViewController.m */; };
+		ECD7BF111D23A989007787CF /* UIView+Dealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD7BF101D23A989007787CF /* UIView+Dealloc.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,11 @@
 		ECD7BF021D23948D007787CF /* sdxl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sdxl.jpg; sourceTree = "<group>"; };
 		ECD7BF061D239762007787CF /* gtl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gtl.jpg; sourceTree = "<group>"; };
 		ECD7BF071D239762007787CF /* lrt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lrt.jpg; sourceTree = "<group>"; };
+		ECD7BF0B1D23A231007787CF /* ScanImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanImageViewController.h; sourceTree = "<group>"; };
+		ECD7BF0C1D23A231007787CF /* ScanImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanImageViewController.m; sourceTree = "<group>"; };
+		ECD7BF0E1D23A51B007787CF /* headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = headers.h; sourceTree = "<group>"; };
+		ECD7BF0F1D23A989007787CF /* UIView+Dealloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Dealloc.h"; sourceTree = "<group>"; };
+		ECD7BF101D23A989007787CF /* UIView+Dealloc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Dealloc.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +105,8 @@
 			children = (
 				EC6038161D2267450097FE81 /* UIView+SetFrame.h */,
 				EC6038171D2267450097FE81 /* UIView+SetFrame.m */,
+				ECD7BF0F1D23A989007787CF /* UIView+Dealloc.h */,
+				ECD7BF101D23A989007787CF /* UIView+Dealloc.m */,
 			);
 			path = CategoryMethod;
 			sourceTree = "<group>";
@@ -106,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				EC6038071D22463C0097FE81 /* CoreText-Prefix.pch */,
+				ECD7BF0E1D23A51B007787CF /* headers.h */,
 				EC6038191D227D110097FE81 /* modelData */,
 				EC99F1C31D20AB440076E1F3 /* CoreTextDemo */,
 				EC99F1C21D20AB440076E1F3 /* Products */,
@@ -123,6 +133,7 @@
 		EC99F1C31D20AB440076E1F3 /* CoreTextDemo */ = {
 			isa = PBXGroup;
 			children = (
+				ECD7BF0A1D23A1B0007787CF /* ViewControllers */,
 				EC99F1C71D20AB440076E1F3 /* AppDelegate.h */,
 				EC99F1C81D20AB440076E1F3 /* AppDelegate.m */,
 				EC99F1CA1D20AB440076E1F3 /* ViewController.h */,
@@ -161,6 +172,15 @@
 				ECD7BF021D23948D007787CF /* sdxl.jpg */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		ECD7BF0A1D23A1B0007787CF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECD7BF0B1D23A231007787CF /* ScanImageViewController.h */,
+				ECD7BF0C1D23A231007787CF /* ScanImageViewController.m */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,10 +262,12 @@
 				ECD7BEF91D2358AB007787CF /* CoreTextImageData.m in Sources */,
 				EC99F1E31D212CAF0076E1F3 /* CTAPIView.m in Sources */,
 				EC6038141D2257010097FE81 /* CTDisplayView.m in Sources */,
+				ECD7BF0D1D23A231007787CF /* ScanImageViewController.m in Sources */,
 				EC6038111D22556C0097FE81 /* CoreTextData.m in Sources */,
 				EC99F1CC1D20AB440076E1F3 /* ViewController.m in Sources */,
 				EC99F1DD1D20B8990076E1F3 /* CTView.m in Sources */,
 				EC99F1C91D20AB440076E1F3 /* AppDelegate.m in Sources */,
+				ECD7BF111D23A989007787CF /* UIView+Dealloc.m in Sources */,
 				EC99F1C61D20AB440076E1F3 /* main.m in Sources */,
 				EC6038181D2267450097FE81 /* UIView+SetFrame.m in Sources */,
 				EC60380E1D224E310097FE81 /* CTFrameParser.m in Sources */,
