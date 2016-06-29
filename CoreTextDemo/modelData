@@ -15,7 +15,8 @@
     "color":"blue",
     "content":"主演：古天乐",
     "size":"13",
-    "type":"txt"
+    "url":"http://baike.baidu.com/view/1323.htm",
+    "type":"link"
     },
     {
     "type":"img",
@@ -27,7 +28,8 @@
     "color":"blue",
     "content":"\n主演：李若彤",
     "size":"13",
-    "type":"txt"
+    "url":"http://baike.baidu.com/view/24473.htm",
+    "type":"link"
     },
     {
     "type":"img",

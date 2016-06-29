@@ -1,5 +1,5 @@
 //
-//  UIView+Dealloc.h
+//  UIViewController+Dealloc.h
 //  CoreTextDemo
 //
 //  Created by 谢小龙 on 16/6/29.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (Dealloc)
+@interface UIViewController (Dealloc)
 
 @end

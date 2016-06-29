@@ -13,9 +13,11 @@
  宏定义
  */
 #define NOTIFICATION_IMAGECLICK @"CoreText_ImageClicked"
+#define NOTIFICATION_LINKCLICK @"CoreText_LinkClicked"
 
 #import "ScanImageViewController.h"
-#import "UIView+Dealloc.h"
+#import "UIViewController+Dealloc.h"
+#import "LinkWebController.h"
 
 
 #endif /* headers_h */

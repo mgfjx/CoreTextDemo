@@ -79,6 +79,14 @@
     [super viewWillAppear:animated];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(coreTextImageClicked:) name:NOTIFICATION_IMAGECLICK object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(coreTextLinkClicked:) name:NOTIFICATION_LINKCLICK object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
 }
 
 - (void)coreTextImageClicked:(NSNotification *)notification{
@@ -91,6 +99,16 @@
     vc.imageName = info[@"imageName"];
     [self presentViewController:vc animated:YES completion:nil];
     
+}
+
+- (void)coreTextLinkClicked:(NSNotification *)notification{
+    
+    NSDictionary *info = notification.userInfo;
+    NSLog(@"%@",info);
+    
+    LinkWebController *vc = [[LinkWebController alloc] init];
+    vc.urlString = info[@"url"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

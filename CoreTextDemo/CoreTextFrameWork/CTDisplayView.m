@@ -8,6 +8,8 @@
 
 #import "CTDisplayView.h"
 #import "CoreTextImageData.h"
+#import "CoreTextLinkData.h"
+#import "CoreTextUtils.h"
 
 @interface CTDisplayView()<UIGestureRecognizerDelegate>
 
@@ -55,6 +57,14 @@
 - (void)userTapGestureDetected:(UIGestureRecognizer *)recgnizer{
     
     CGPoint point = [recgnizer locationInView:self];
+    
+    CoreTextLinkData *linkData = [CoreTextUtils touchLinkInView:self atPoint:point data:self.coreTextData];
+    
+    if (linkData) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LINKCLICK object:nil userInfo:@{@"url":linkData.url}];
+        return;
+    }
+    
     for (CoreTextImageData *imageData in self.coreTextData.imageArray) {
         //翻转坐标系，因为imageData中的坐标是Coretext坐标
         CGRect imageRect = imageData.imagePosition;
