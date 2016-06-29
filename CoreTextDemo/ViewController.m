@@ -63,11 +63,15 @@
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"modelData" ofType:nil];
     
+    NSString *txtPath = @"/Users/xiexiaolong1/Desktop/sdxl.txt";
+    NSString *string = [NSString stringWithContentsOfFile:txtPath encoding:NSUTF8StringEncoding error:nil];
+    
     CTFrameParserConfig *config = [[CTFrameParserConfig alloc] init];
     config.lineSpace = -1.0f;
     config.width = view.width;
     config.textColor = [UIColor colorWithRed:0.120 green:0.729 blue:0.112 alpha:1.000];
-    CoreTextData *data = [CTFrameParser parserTemplateFile:path config:config];
+//    CoreTextData *data = [CTFrameParser parserTemplateFile:path config:config];
+    CoreTextData *data = [CTFrameParser parserContent:string config:config];
     view.coreTextData = data;
     
     scrollView.contentSize = CGSizeMake(scrollView.width, data.height);
