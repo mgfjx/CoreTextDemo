@@ -40,7 +40,7 @@
 - (void)clickBtn:(UIButton *)sender{
     
     
-    CTDisplayView *view = [[CTDisplayView alloc] initWithFrame:CGRectMake(0, 64, 50, self.view.height)];
+    CTDisplayView *view = [[CTDisplayView alloc] initWithFrame:CGRectMake(0, 64, self.view.width, self.view.height)];
     view.backgroundColor = [UIColor colorWithRed:0.902 green:0.951 blue:0.971 alpha:1.000];
     [self.view addSubview:view];
     
