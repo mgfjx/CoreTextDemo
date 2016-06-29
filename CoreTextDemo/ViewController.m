@@ -25,6 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.automaticallyAdjustsScrollViewInsets = YES;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(100, 100, 100, 100);
     btn.backgroundColor = [UIColor lightGrayColor];
@@ -40,9 +43,8 @@
 - (void)clickBtn:(UIButton *)sender{
     
     UIScrollView *scrollView = [[UIScrollView alloc] init];
-    scrollView.frame = CGRectMake(0, 64, self.view.width, self.view.height - 64);
+    scrollView.frame = CGRectMake(0, 0, self.view.width, self.view.height);
     [self.view addSubview:scrollView];
-    
     
     CTDisplayView *view = [[CTDisplayView alloc] initWithFrame:CGRectMake(0, 0, scrollView.width, scrollView.height)];
     view.backgroundColor = [UIColor colorWithRed:0.902 green:0.951 blue:0.971 alpha:1.000];
