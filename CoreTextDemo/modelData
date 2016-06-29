@@ -1,5 +1,11 @@
 [
     {
+    "type":"img",
+    "height":200,
+    "width":375,
+    "name":"QRcode.png"
+    },
+    {
     "color":"red",
     "content":"这是一段测试文字",
     "size":"16",
@@ -16,6 +22,12 @@
     "content":"这是一段测试文字",
     "size":"36",
     "type":"txt"
+    },
+    {
+    "type":"img",
+    "height":30,
+    "width":30,
+    "name":"exp.png"
     },
     {
     "color":"red",

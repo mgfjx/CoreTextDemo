@@ -12,5 +12,6 @@
 
 @property (nonatomic, assign) CTFrameRef ctFrame;
 @property (nonatomic, assign) CGFloat height;
+@property (nonatomic, strong) NSArray* imageArray;
 
 @end

@@ -30,20 +30,17 @@
     btn.backgroundColor = [UIColor lightGrayColor];
     [btn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.view addSubview:btn];
+//    [self.view addSubview:btn];
     
-    UILabel *label = [[UILabel alloc] init];
-    label.frame = CGRectMake(220, 100, 100, 200);
-    label.numberOfLines = 0;
-    [self.view addSubview:label];
-    self.label = label;
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Draw" style:UIBarButtonItemStylePlain target:self action:@selector(clickBtn:)];
+    self.navigationItem.rightBarButtonItem = item;
     
 }
 
 - (void)clickBtn:(UIButton *)sender{
     
     
-    CTDisplayView *view = [[CTDisplayView alloc] initWithFrame:CGRectMake(100, 250, 200, 200)];
+    CTDisplayView *view = [[CTDisplayView alloc] initWithFrame:CGRectMake(0, 64, 50, self.view.height)];
     view.backgroundColor = [UIColor colorWithRed:0.902 green:0.951 blue:0.971 alpha:1.000];
     [self.view addSubview:view];
     

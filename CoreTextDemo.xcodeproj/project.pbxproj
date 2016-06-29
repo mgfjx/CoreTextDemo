@@ -22,6 +22,8 @@
 		EC99F1DD1D20B8990076E1F3 /* CTView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC99F1DC1D20B8990076E1F3 /* CTView.m */; };
 		EC99F1DF1D20CD2E0076E1F3 /* exp.png in Resources */ = {isa = PBXBuildFile; fileRef = EC99F1DE1D20CD2E0076E1F3 /* exp.png */; };
 		EC99F1E31D212CAF0076E1F3 /* CTAPIView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC99F1E21D212CAF0076E1F3 /* CTAPIView.m */; };
+		ECD7BEF91D2358AB007787CF /* CoreTextImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD7BEF81D2358AB007787CF /* CoreTextImageData.m */; };
+		ECD7BEFB1D2369DA007787CF /* QRcode.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7BEFA1D2369DA007787CF /* QRcode.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,9 @@
 		EC99F1DE1D20CD2E0076E1F3 /* exp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exp.png; sourceTree = "<group>"; };
 		EC99F1E11D212CAF0076E1F3 /* CTAPIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAPIView.h; sourceTree = "<group>"; };
 		EC99F1E21D212CAF0076E1F3 /* CTAPIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAPIView.m; sourceTree = "<group>"; };
+		ECD7BEF71D2358AB007787CF /* CoreTextImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextImageData.h; sourceTree = "<group>"; };
+		ECD7BEF81D2358AB007787CF /* CoreTextImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextImageData.m; sourceTree = "<group>"; };
+		ECD7BEFA1D2369DA007787CF /* QRcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = QRcode.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +77,8 @@
 				EC60380A1D224D040097FE81 /* CTFrameParserConfig.m */,
 				EC60380C1D224E310097FE81 /* CTFrameParser.h */,
 				EC60380D1D224E310097FE81 /* CTFrameParser.m */,
+				ECD7BEF71D2358AB007787CF /* CoreTextImageData.h */,
+				ECD7BEF81D2358AB007787CF /* CoreTextImageData.m */,
 				EC60380F1D22556C0097FE81 /* CoreTextData.h */,
 				EC6038101D22556C0097FE81 /* CoreTextData.m */,
 				EC6038121D2257010097FE81 /* CTDisplayView.h */,
@@ -121,6 +128,7 @@
 				EC6038151D22672D0097FE81 /* CategoryMethod */,
 				EC6038081D224CDC0097FE81 /* CoreTextFrameWork */,
 				EC99F1CD1D20AB440076E1F3 /* Main.storyboard */,
+				ECD7BEFA1D2369DA007787CF /* QRcode.png */,
 				EC99F1DE1D20CD2E0076E1F3 /* exp.png */,
 				EC99F1D01D20AB440076E1F3 /* Assets.xcassets */,
 				EC99F1D21D20AB440076E1F3 /* LaunchScreen.storyboard */,
@@ -200,6 +208,7 @@
 				EC99F1D11D20AB440076E1F3 /* Assets.xcassets in Resources */,
 				EC99F1CF1D20AB440076E1F3 /* Main.storyboard in Resources */,
 				EC99F1DF1D20CD2E0076E1F3 /* exp.png in Resources */,
+				ECD7BEFB1D2369DA007787CF /* QRcode.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD7BEF91D2358AB007787CF /* CoreTextImageData.m in Sources */,
 				EC99F1E31D212CAF0076E1F3 /* CTAPIView.m in Sources */,
 				EC6038141D2257010097FE81 /* CTDisplayView.m in Sources */,
 				EC6038111D22556C0097FE81 /* CoreTextData.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "CTFrameParser.h"
+#import "CoreTextImageData.h"
 
 #define FontName @"AmericanTypewriter"
 
@@ -92,11 +93,16 @@
 #pragma mark - parser localFile
 + (CoreTextData *)parserTemplateFile:(NSString *)path config:(CTFrameParserConfig *)config{
     
-    NSAttributedString *content = [self loadTemplateFile:path config:config];
-    return [self parserAttributeContent:content config:config];
+    NSMutableArray *imageArray = [NSMutableArray array];
+    NSAttributedString *content = [self loadTemplateFile:path config:config imageArray:imageArray];
+    CoreTextData *data = [self parserAttributeContent:content config:config];
+    data.imageArray = imageArray;
+    return data;
 }
 
-+ (NSAttributedString *)loadTemplateFile:(NSString *)path config:(CTFrameParserConfig *)config{
++ (NSAttributedString *)loadTemplateFile:(NSString *)path
+                                  config:(CTFrameParserConfig *)config
+                              imageArray:(NSMutableArray *)imageArray{
     
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSMutableAttributedString *result = [[NSMutableAttributedString alloc] init];
@@ -109,12 +115,44 @@
                 if ([type isEqualToString:@"txt"]) {
                     NSAttributedString *as = [self parserAttributeContentFromDictionary:dict config:config];
                     [result appendAttributedString:as];
+                }else if([type isEqualToString:@"img"]){
+                    
+                    CoreTextImageData *imageData = [[CoreTextImageData alloc] init];
+                    imageData.name = dict[@"name"];
+                    imageData.position = result.length;
+                    [imageArray addObject:imageData];
+                    
+                    //创建空白占位符，并且设置CTRunDelegate信息
+                    NSAttributedString *as = [self parserImageDataFromNSDictionary:dict config:config];
+                    [result appendAttributedString:as];
                 }
             }
         }
         
     }
     return result;
+}
+
++ (NSAttributedString *)parserImageDataFromNSDictionary:(NSDictionary *)imageDict config:(CTFrameParserConfig *)config{
+    
+    CTRunDelegateCallbacks callBacks;
+    memset(&callBacks, 0, sizeof(CTRunDelegateCallbacks));
+    callBacks.version = kCTRunDelegateVersion1;
+    callBacks.getAscent = ascentCallBack;
+    callBacks.getDescent = descentCallBack;
+    callBacks.getWidth = widthCallBack;
+    
+    CTRunDelegateRef delegate = CTRunDelegateCreate(&callBacks, (void *)imageDict);
+    
+    //使用0xFFFC作为空白占位符
+    unichar placeHolderChar = 0xFFFC;
+    NSString *placeHolderStr = [NSString stringWithCharacters:&placeHolderChar length:1];
+    NSDictionary *attributes = [self attributesWithConfig:config];
+    NSMutableAttributedString *placeHolderAttrStr = [[NSMutableAttributedString alloc] initWithString:placeHolderStr attributes:attributes];
+    CFAttributedStringSetAttribute((CFMutableAttributedStringRef)placeHolderAttrStr, CFRangeMake(0, 1), kCTRunDelegateAttributeName, delegate);
+    CFRelease(delegate);
+    
+    return placeHolderAttrStr;
 }
 
 + (NSAttributedString *)parserAttributeContentFromDictionary:(NSDictionary *)dict config:(CTFrameParserConfig *)config{
@@ -146,8 +184,24 @@
         return [UIColor blueColor];
     }else if([colorStr isEqualToString:@"black"]) {
         return [UIColor blackColor];
+    }else if([colorStr isEqualToString:@"default"]) {
+        return [UIColor blackColor];
     }
+    
     return nil;
+}
+
+#pragma mark - CTRunDelegata 回调
+static CGFloat ascentCallBack(void *ref){
+    return [(NSNumber *)[(__bridge NSDictionary *)ref objectForKey:@"height"] floatValue];
+}
+
+static CGFloat descentCallBack(void *ref){
+    return 0;
+}
+
+static CGFloat widthCallBack(void *ref){
+    return [(NSNumber *)[(__bridge NSDictionary *)ref objectForKey:@"width"] floatValue];
 }
 
 @end
