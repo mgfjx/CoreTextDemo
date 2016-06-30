@@ -18,6 +18,7 @@
 #import "ScanImageViewController.h"
 #import "UIViewController+Dealloc.h"
 #import "LinkWebController.h"
+#import "BasicViewController.h"
 
 
 #endif /* headers_h */
