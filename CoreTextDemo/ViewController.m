@@ -17,6 +17,7 @@
 @interface ViewController ()
 
 @property (nonatomic, strong) UILabel *label;
+@property (nonatomic, strong) CTDisplayView *displayView;
 
 @end
 
@@ -42,6 +43,10 @@
 
 - (void)clickBtn:(UIButton *)sender{
     
+    if (self.displayView) {
+        return;
+    }
+    
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.frame = CGRectMake(0, 0, self.view.width, self.view.height);
     [self.view addSubview:scrollView];
@@ -49,6 +54,7 @@
     CTDisplayView *view = [[CTDisplayView alloc] initWithFrame:CGRectMake(0, 0, scrollView.width, scrollView.height)];
     view.backgroundColor = [UIColor colorWithRed:0.902 green:0.951 blue:0.971 alpha:1.000];
     [scrollView addSubview:view];
+    self.displayView = view;
     
     NSString *content = @"'It’s crucial that you ask about training before you accept the job,' said Steve Jeffers, HR director at Meridian Business Support. 'Let’s face it, you won’t want to go in a role and stay there indefinitely – you’re likely to want a promotion at some point. By asking at the interview stages you can understand how you will progress through the company from the offset.'";
     
@@ -63,15 +69,11 @@
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"modelData" ofType:nil];
     
-    NSString *txtPath = @"/Users/xiexiaolong1/Desktop/sdxl.txt";
-    NSString *string = [NSString stringWithContentsOfFile:txtPath encoding:NSUTF8StringEncoding error:nil];
-    
     CTFrameParserConfig *config = [[CTFrameParserConfig alloc] init];
     config.lineSpace = -1.0f;
     config.width = view.width;
     config.textColor = [UIColor colorWithRed:0.120 green:0.729 blue:0.112 alpha:1.000];
-//    CoreTextData *data = [CTFrameParser parserTemplateFile:path config:config];
-    CoreTextData *data = [CTFrameParser parserContent:string config:config];
+    CoreTextData *data = [CTFrameParser parserTemplateFile:path config:config];
     view.coreTextData = data;
     
     scrollView.contentSize = CGSizeMake(scrollView.width, data.height);

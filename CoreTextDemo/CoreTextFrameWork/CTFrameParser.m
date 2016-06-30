@@ -134,6 +134,10 @@
                     
                     NSUInteger startPos = result.length;
                     NSAttributedString *as = [self parserAttributeContentFromDictionary:dict config:config];
+                    
+                    NSMutableAttributedString *linkStr = [[NSMutableAttributedString alloc] initWithAttributedString:as];
+                    [linkStr addAttribute:NSUnderlineStyleAttributeName value:@(NSUnderlineStyleSingle) range:NSMakeRange(0, linkStr.length)];
+                    as = [linkStr copy];
                     [result appendAttributedString:as];
                     
                     //创建CoreTextLinkData
