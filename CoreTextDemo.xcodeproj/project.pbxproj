@@ -21,6 +21,7 @@
 		EC99F1D41D20AB440076E1F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC99F1D21D20AB440076E1F3 /* LaunchScreen.storyboard */; };
 		EC99F1DD1D20B8990076E1F3 /* CTView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC99F1DC1D20B8990076E1F3 /* CTView.m */; };
 		EC99F1E31D212CAF0076E1F3 /* CTAPIView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC99F1E21D212CAF0076E1F3 /* CTAPIView.m */; };
+		ECBB49441D2516E100359C31 /* CoreTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBB49431D2516E100359C31 /* CoreTextViewController.m */; };
 		ECD7BEF91D2358AB007787CF /* CoreTextImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD7BEF81D2358AB007787CF /* CoreTextImageData.m */; };
 		ECD7BF031D23948D007787CF /* exp.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7BF001D23948D007787CF /* exp.png */; };
 		ECD7BF041D23948D007787CF /* QRcode.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7BF011D23948D007787CF /* QRcode.png */; };
@@ -61,6 +62,8 @@
 		EC99F1DC1D20B8990076E1F3 /* CTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTView.m; sourceTree = "<group>"; };
 		EC99F1E11D212CAF0076E1F3 /* CTAPIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAPIView.h; sourceTree = "<group>"; };
 		EC99F1E21D212CAF0076E1F3 /* CTAPIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAPIView.m; sourceTree = "<group>"; };
+		ECBB49421D2516E100359C31 /* CoreTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextViewController.h; sourceTree = "<group>"; };
+		ECBB49431D2516E100359C31 /* CoreTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextViewController.m; sourceTree = "<group>"; };
 		ECD7BEF71D2358AB007787CF /* CoreTextImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextImageData.h; sourceTree = "<group>"; };
 		ECD7BEF81D2358AB007787CF /* CoreTextImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextImageData.m; sourceTree = "<group>"; };
 		ECD7BF001D23948D007787CF /* exp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exp.png; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 				ECD7BF0C1D23A231007787CF /* ScanImageViewController.m */,
 				ECD7BF1B1D23C394007787CF /* LinkWebController.h */,
 				ECD7BF1C1D23C394007787CF /* LinkWebController.m */,
+				ECBB49421D2516E100359C31 /* CoreTextViewController.h */,
+				ECBB49431D2516E100359C31 /* CoreTextViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECD7BEF91D2358AB007787CF /* CoreTextImageData.m in Sources */,
+				ECBB49441D2516E100359C31 /* CoreTextViewController.m in Sources */,
 				EC99F1E31D212CAF0076E1F3 /* CTAPIView.m in Sources */,
 				EC6038141D2257010097FE81 /* CTDisplayView.m in Sources */,
 				ECD7BF171D23B24F007787CF /* CoreTextUtils.m in Sources */,

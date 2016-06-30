@@ -17,6 +17,7 @@
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
     NSArray *titleArray;
+    NSArray *controllers;
     
 }
 
@@ -28,6 +29,7 @@
     [super viewDidLoad];
     
     titleArray = @[@"CoreText"];
+    controllers = @[@"CoreTextViewController"];
     
     UITableView *table = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     table.delegate = self;
@@ -63,20 +65,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    switch (indexPath.row) {
-        case 0:
-            
-            break;
-            
-        default:
-            break;
-    }
+    [self jumpToController:controllers[indexPath.row]];
 }
 
 #pragma mark - CoreText
-- (void)coreTextImplementation{
+- (void)jumpToController:(NSString *)controllerName{
     
-    
+    UIViewController *vc = [[NSClassFromString(controllerName) alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 
