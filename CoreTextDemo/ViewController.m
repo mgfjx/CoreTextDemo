@@ -28,8 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    titleArray = @[@"CoreText", @"ImageFontBackground"];
-    controllers = @[@"CoreTextViewController",@"AttributeStringController"];
+    titleArray = @[@"CoreText", @"ImageFontBackground",@"ImageViewController"];
+    controllers = @[@"CoreTextViewController",@"AttributeStringController",@"ImageViewController"];
     
     UITableView *table = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     table.delegate = self;

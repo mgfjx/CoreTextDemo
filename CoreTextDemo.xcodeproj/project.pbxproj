@@ -21,6 +21,8 @@
 		EC99F1D41D20AB440076E1F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC99F1D21D20AB440076E1F3 /* LaunchScreen.storyboard */; };
 		EC99F1DD1D20B8990076E1F3 /* CTView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC99F1DC1D20B8990076E1F3 /* CTView.m */; };
 		EC99F1E31D212CAF0076E1F3 /* CTAPIView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC99F1E21D212CAF0076E1F3 /* CTAPIView.m */; };
+		EC9BA4291D26550D00810A21 /* HeadImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9BA4281D26550D00810A21 /* HeadImageController.m */; };
+		EC9BA42C1D265BCC00810A21 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9BA42B1D265BCC00810A21 /* ImageViewController.m */; };
 		ECBB49441D2516E100359C31 /* CoreTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBB49431D2516E100359C31 /* CoreTextViewController.m */; };
 		ECBB49481D251B5300359C31 /* AttributeStringController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBB49471D251B5300359C31 /* AttributeStringController.m */; };
 		ECBB494B1D251C2200359C31 /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBB494A1D251C2200359C31 /* BasicViewController.m */; };
@@ -65,6 +67,10 @@
 		EC99F1DC1D20B8990076E1F3 /* CTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTView.m; sourceTree = "<group>"; };
 		EC99F1E11D212CAF0076E1F3 /* CTAPIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTAPIView.h; sourceTree = "<group>"; };
 		EC99F1E21D212CAF0076E1F3 /* CTAPIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTAPIView.m; sourceTree = "<group>"; };
+		EC9BA4271D26550D00810A21 /* HeadImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadImageController.h; sourceTree = "<group>"; };
+		EC9BA4281D26550D00810A21 /* HeadImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadImageController.m; sourceTree = "<group>"; };
+		EC9BA42A1D265BCC00810A21 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		EC9BA42B1D265BCC00810A21 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		ECBB49421D2516E100359C31 /* CoreTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextViewController.h; sourceTree = "<group>"; };
 		ECBB49431D2516E100359C31 /* CoreTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextViewController.m; sourceTree = "<group>"; };
 		ECBB49461D251B5300359C31 /* AttributeStringController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttributeStringController.h; sourceTree = "<group>"; };
@@ -187,6 +193,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EC9BA4261D2654FA00810A21 /* HeadImageController */ = {
+			isa = PBXGroup;
+			children = (
+				EC9BA4271D26550D00810A21 /* HeadImageController.h */,
+				EC9BA4281D26550D00810A21 /* HeadImageController.m */,
+			);
+			path = HeadImageController;
+			sourceTree = "<group>";
+		};
 		ECBB494C1D251D9D00359C31 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +226,7 @@
 		ECD7BF0A1D23A1B0007787CF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EC9BA4261D2654FA00810A21 /* HeadImageController */,
 				ECBB494C1D251D9D00359C31 /* Views */,
 				ECBB49491D251C2200359C31 /* BasicViewController.h */,
 				ECBB494A1D251C2200359C31 /* BasicViewController.m */,
@@ -222,6 +238,8 @@
 				ECBB49431D2516E100359C31 /* CoreTextViewController.m */,
 				ECBB49461D251B5300359C31 /* AttributeStringController.h */,
 				ECBB49471D251B5300359C31 /* AttributeStringController.m */,
+				EC9BA42A1D265BCC00810A21 /* ImageViewController.h */,
+				EC9BA42B1D265BCC00810A21 /* ImageViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -306,6 +324,8 @@
 				ECD7BEF91D2358AB007787CF /* CoreTextImageData.m in Sources */,
 				ECBB49441D2516E100359C31 /* CoreTextViewController.m in Sources */,
 				EC99F1E31D212CAF0076E1F3 /* CTAPIView.m in Sources */,
+				EC9BA4291D26550D00810A21 /* HeadImageController.m in Sources */,
+				EC9BA42C1D265BCC00810A21 /* ImageViewController.m in Sources */,
 				EC6038141D2257010097FE81 /* CTDisplayView.m in Sources */,
 				ECD7BF171D23B24F007787CF /* CoreTextUtils.m in Sources */,
 				ECD7BF0D1D23A231007787CF /* ScanImageViewController.m in Sources */,

@@ -20,5 +20,7 @@
 #import "LinkWebController.h"
 #import "BasicViewController.h"
 #import "UIView+AddFunc.h"
+#import "HeadImageController.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 
 #endif /* headers_h */
