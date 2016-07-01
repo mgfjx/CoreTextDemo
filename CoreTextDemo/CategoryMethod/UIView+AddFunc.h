@@ -10,7 +10,29 @@
 
 @interface UIView (AddFunc)
 
+/**
+ @brief Create a snapshot image of view
+ */
 - (nullable UIImage *)snapshotImage;
+
+/**
+ @brief set view's layer shadow
+ 
+ @param color	Shadow color
+ @param offset	Shadow offset
+ @param radius	Shadow radius
+ */
+- (void)setLayerShadow:(nullable UIColor *)color offset:(CGSize)offset radius:(CGFloat)radius;
+
+/**
+ @brief remove all subviews
+ */
+- (void)removeAllSubViews;
+
+/**
+ @brief Returns the view's view controller (may be nil).
+ */
+@property (nullable, nonatomic, readonly) UIViewController *viewController;
 
 @property (nonatomic, assign) CGFloat x;
 @property (nonatomic, assign) CGFloat y;
