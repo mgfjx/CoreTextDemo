@@ -11,7 +11,7 @@
 		EC60380E1D224E310097FE81 /* CTFrameParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EC60380D1D224E310097FE81 /* CTFrameParser.m */; };
 		EC6038111D22556C0097FE81 /* CoreTextData.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6038101D22556C0097FE81 /* CoreTextData.m */; };
 		EC6038141D2257010097FE81 /* CTDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6038131D2257010097FE81 /* CTDisplayView.m */; };
-		EC6038181D2267450097FE81 /* UIView+SetFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6038171D2267450097FE81 /* UIView+SetFrame.m */; };
+		EC6038181D2267450097FE81 /* UIView+AddFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6038171D2267450097FE81 /* UIView+AddFunc.m */; };
 		EC60381A1D227D110097FE81 /* modelData in Resources */ = {isa = PBXBuildFile; fileRef = EC6038191D227D110097FE81 /* modelData */; };
 		EC99F1C61D20AB440076E1F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC99F1C51D20AB440076E1F3 /* main.m */; };
 		EC99F1C91D20AB440076E1F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC99F1C81D20AB440076E1F3 /* AppDelegate.m */; };
@@ -48,8 +48,8 @@
 		EC6038101D22556C0097FE81 /* CoreTextData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextData.m; sourceTree = "<group>"; };
 		EC6038121D2257010097FE81 /* CTDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTDisplayView.h; sourceTree = "<group>"; };
 		EC6038131D2257010097FE81 /* CTDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTDisplayView.m; sourceTree = "<group>"; };
-		EC6038161D2267450097FE81 /* UIView+SetFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SetFrame.h"; sourceTree = "<group>"; };
-		EC6038171D2267450097FE81 /* UIView+SetFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SetFrame.m"; sourceTree = "<group>"; };
+		EC6038161D2267450097FE81 /* UIView+AddFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AddFunc.h"; sourceTree = "<group>"; };
+		EC6038171D2267450097FE81 /* UIView+AddFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AddFunc.m"; sourceTree = "<group>"; };
 		EC6038191D227D110097FE81 /* modelData */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = modelData; path = CoreTextDemo/modelData; sourceTree = "<group>"; };
 		EC99F1C11D20AB440076E1F3 /* CoreTextDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreTextDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC99F1C51D20AB440076E1F3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -128,8 +128,8 @@
 		EC6038151D22672D0097FE81 /* CategoryMethod */ = {
 			isa = PBXGroup;
 			children = (
-				EC6038161D2267450097FE81 /* UIView+SetFrame.h */,
-				EC6038171D2267450097FE81 /* UIView+SetFrame.m */,
+				EC6038161D2267450097FE81 /* UIView+AddFunc.h */,
+				EC6038171D2267450097FE81 /* UIView+AddFunc.m */,
 				ECD7BF181D23BCB6007787CF /* UIViewController+Dealloc.h */,
 				ECD7BF191D23BCB6007787CF /* UIViewController+Dealloc.m */,
 			);
@@ -314,7 +314,7 @@
 				EC99F1DD1D20B8990076E1F3 /* CTView.m in Sources */,
 				EC99F1C91D20AB440076E1F3 /* AppDelegate.m in Sources */,
 				EC99F1C61D20AB440076E1F3 /* main.m in Sources */,
-				EC6038181D2267450097FE81 /* UIView+SetFrame.m in Sources */,
+				EC6038181D2267450097FE81 /* UIView+AddFunc.m in Sources */,
 				ECD7BF141D23AF4D007787CF /* CoreTextLinkData.m in Sources */,
 				EC60380E1D224E310097FE81 /* CTFrameParser.m in Sources */,
 				ECD7BF1A1D23BCB6007787CF /* UIViewController+Dealloc.m in Sources */,

@@ -10,10 +10,6 @@
 
 @implementation UIViewController (Dealloc)
 
-- (void)viewDidLoad{
-    
-}
-
 - (void)dealloc{
     NSLog(@"%@ dealloc",NSStringFromClass([self class]));
 }

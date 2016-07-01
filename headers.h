@@ -19,6 +19,6 @@
 #import "UIViewController+Dealloc.h"
 #import "LinkWebController.h"
 #import "BasicViewController.h"
-
+#import "UIView+AddFunc.h"
 
 #endif /* headers_h */

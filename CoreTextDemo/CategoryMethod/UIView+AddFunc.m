@@ -6,10 +6,21 @@
 //  Copyright © 2016年 XXL. All rights reserved.
 //
 
-#import "UIView+SetFrame.h"
+#import "UIView+AddFunc.h"
 
 @implementation UIView (SetFrame)
 
+- (UIImage *)snapshotImage{
+    
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return snap;
+}
+
+#pragma mark - frame setup
 //x
 - (CGFloat)x{
     return self.frame.origin.x;
@@ -41,6 +52,26 @@
 - (void)setHeight:(CGFloat)height{
     self.frame = CGRectMake(self.x, self.y, self.width, height);
 }
+
+//size
+- (CGSize)size{
+    return self.frame.size;
+}
+
+- (void)setSize:(CGSize)size{
+    self.frame = CGRectMake(self.x, self.y, size.width, size.height);
+}
+
+//origin
+- (CGPoint)origin{
+    return self.frame.origin;
+}
+
+- (void)setOrigin:(CGPoint)origin{
+    self.frame = CGRectMake(origin.x, origin.y, self.width, self.height);
+}
+
+#pragma <#arguments#>
 
 
 @end
