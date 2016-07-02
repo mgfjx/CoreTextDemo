@@ -24,7 +24,7 @@
     UILabel *label = [[UILabel alloc] init];
     label.frame = CGRectMake(10, 100, self.view.width - 10*2, self.view.height - 100);
     label.font = [UIFont systemFontOfSize:30];
-    label.backgroundColor = [UIColor colorWithWhite:0.936 alpha:1.000];
+    label.backgroundColor = [UIColor colorWithWhite:0.400 alpha:1.000];
     label.numberOfLines = 0;
     [self.view addSubview:label];
     

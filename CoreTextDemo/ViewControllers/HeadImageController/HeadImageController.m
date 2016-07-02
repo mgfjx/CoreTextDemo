@@ -38,5 +38,14 @@
     
     imageView = imgView;
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissCurrentController)];
+    [self.view addGestureRecognizer:tap];
 }
+
+- (void)dismissCurrentController{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
 @end

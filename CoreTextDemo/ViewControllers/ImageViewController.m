@@ -7,6 +7,7 @@
 //
 
 #import "ImageViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface ImageViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>{
     UIImageView *imageView;
@@ -44,29 +45,72 @@
     //    self.snapCallBack(nil);
     UIImagePickerController  *m_picker = [[UIImagePickerController alloc] init];
     m_picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//    m_picker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-//    m_picker.mediaTypes = @[(__bridge NSString *)kUTTypeImage];
-//    m_picker.allowsEditing = NO;
+    m_picker.allowsEditing = YES;
+    m_picker.mediaTypes = @[(NSString *)kUTTypeMovie,(NSString *)kUTTypeImage,(NSString *)kUTTypeVideo];
     m_picker.delegate = self;
+    
+    [self presentViewController:m_picker animated:YES completion:NULL];
+    
+}
+
+- (void)selectImageFromCamera{
+    
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) return;
+    
+    UIImagePickerController  *m_picker = [[UIImagePickerController alloc] init];
+    m_picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    m_picker.videoMaximumDuration = 15;
+    m_picker.mediaTypes = @[(NSString *)kUTTypeMovie,(NSString *)kUTTypeImage];
+    m_picker.allowsEditing = YES;
+    m_picker.delegate = self;
+    m_picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
+    
     [self presentViewController:m_picker animated:YES completion:NULL];
     
 }
 
 #pragma mark - UIImagePickerControllerDelegate
-
-#pragma mark -- <UIImagePickerControllerDelegate>--
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     
-    UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage];
-
-//    imageView.image = image;
+    NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
+    
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
+        UIImage *image = info[UIImagePickerControllerEditedImage];
+        imageView.image = image;
+    }else if([mediaType isEqualToString:(NSString *)kUTTypeMovie]){
+        
+        NSURL *url = info[UIImagePickerControllerMediaURL];
+        
+        AVPlayerLayer *layer = nil;
+        
+        if (url) {
+            
+            AVPlayer *player = [AVPlayer playerWithURL:url];
+            layer = [AVPlayerLayer playerLayerWithPlayer:player];
+            layer.frame = self.view.bounds;
+            [self.view.layer addSublayer:layer];
+            
+            [player play];
+            
+        }else{
+            if (layer) {
+                [layer removeFromSuperlayer];
+            }
+        }
+        
+        NSLog(@"%@",url.absoluteString);
+    }
+    
     [picker dismissViewControllerAnimated:NO completion:nil];
     
+    return;
+    /*
     [HeadImageController initWithImage:image owner:self screenShotCallBack:^(UIImage *image) {
         
         NSLog(@"finishChooseImage");
         
     }];
+     */
     
 }
 
@@ -79,6 +123,10 @@
     switch (buttonIndex) {
         case 0:
             [self selectImageFromAlbum];
+            break;
+            
+        case 1:
+            [self selectImageFromCamera];
             break;
             
         default:
