@@ -8,7 +8,7 @@
 
 #import "ImageViewController.h"
 
-@interface ImageViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>{
+@interface ImageViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>{
     UIImageView *imageView;
 }
 
@@ -19,7 +19,7 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    [self initRightBarButton:@"选择图片" action:@selector(clickRightBarBtn:)];
+    [self initRightBarButton:@"选择图片" action:@selector(selectImage)];
     
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     imgView.contentMode = UIViewContentModeScaleAspectFit;
@@ -30,7 +30,14 @@
     
 }
 
-- (void)clickRightBarBtn:(id)sender{
+- (void)selectImage{
+    
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"选择图片" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"图库", @"相机", nil];
+    [sheet showInView:self.view];
+    
+}
+
+- (void)selectImageFromAlbum{
     
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) return;
     
@@ -48,23 +55,12 @@
 #pragma mark - UIImagePickerControllerDelegate
 
 #pragma mark -- <UIImagePickerControllerDelegate>--
-// 获取图片后的操作
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
-{
-    // 销毁控制器
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    
-    // 设置图片
-    imageView.image = info[UIImagePickerControllerOriginalImage];
-}
-
-/*
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     
-//    UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage];
-//    
+    UIImage *image = [info objectForKey: UIImagePickerControllerOriginalImage];
+
 //    imageView.image = image;
-    
+    [picker dismissViewControllerAnimated:NO completion:nil];
     
     [HeadImageController initWithImage:image owner:self screenShotCallBack:^(UIImage *image) {
         
@@ -72,13 +68,22 @@
         
     }];
     
-//    [picker dismissViewControllerAnimated:YES completion:nil];
-    
 }
-*/
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+            [self selectImageFromAlbum];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end

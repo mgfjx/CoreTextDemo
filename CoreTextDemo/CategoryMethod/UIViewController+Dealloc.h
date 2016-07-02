@@ -2,7 +2,7 @@
 //  UIViewController+Dealloc.h
 //  CoreTextDemo
 //
-//  Created by 谢小龙 on 16/6/29.
+//  Created by xiexiaolong on 16/7/2.
 //  Copyright © 2016年 XXL. All rights reserved.
 //
 
