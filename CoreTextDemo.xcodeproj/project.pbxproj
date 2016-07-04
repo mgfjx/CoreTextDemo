@@ -43,6 +43,9 @@
 		ECFFD9661D2A0BC1006C7A62 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFFD9651D2A0BC1006C7A62 /* SecondViewController.m */; };
 		ECFFD9691D2A0D59006C7A62 /* PresentOneTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFFD9681D2A0D59006C7A62 /* PresentOneTransition.m */; };
 		ECFFD96C1D2A2F13006C7A62 /* InteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFFD96B1D2A2F13006C7A62 /* InteractiveTransition.m */; };
+		ECFFD96F1D2A570B006C7A62 /* TransitionAnimationOBJ.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFFD96E1D2A570B006C7A62 /* TransitionAnimationOBJ.m */; };
+		ECFFD9721D2A5BB9006C7A62 /* TransitionToViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFFD9711D2A5BB9006C7A62 /* TransitionToViewController.m */; };
+		ECFFD9751D2A5BCB006C7A62 /* TransitionFromViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFFD9741D2A5BCB006C7A62 /* TransitionFromViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +115,12 @@
 		ECFFD9681D2A0D59006C7A62 /* PresentOneTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentOneTransition.m; sourceTree = "<group>"; };
 		ECFFD96A1D2A2F13006C7A62 /* InteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractiveTransition.h; sourceTree = "<group>"; };
 		ECFFD96B1D2A2F13006C7A62 /* InteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InteractiveTransition.m; sourceTree = "<group>"; };
+		ECFFD96D1D2A570B006C7A62 /* TransitionAnimationOBJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionAnimationOBJ.h; sourceTree = "<group>"; };
+		ECFFD96E1D2A570B006C7A62 /* TransitionAnimationOBJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionAnimationOBJ.m; sourceTree = "<group>"; };
+		ECFFD9701D2A5BB9006C7A62 /* TransitionToViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionToViewController.h; sourceTree = "<group>"; };
+		ECFFD9711D2A5BB9006C7A62 /* TransitionToViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionToViewController.m; sourceTree = "<group>"; };
+		ECFFD9731D2A5BCB006C7A62 /* TransitionFromViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionFromViewController.h; sourceTree = "<group>"; };
+		ECFFD9741D2A5BCB006C7A62 /* TransitionFromViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionFromViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +280,12 @@
 				ECFFD9651D2A0BC1006C7A62 /* SecondViewController.m */,
 				ECFFD9671D2A0D59006C7A62 /* PresentOneTransition.h */,
 				ECFFD9681D2A0D59006C7A62 /* PresentOneTransition.m */,
+				ECFFD96D1D2A570B006C7A62 /* TransitionAnimationOBJ.h */,
+				ECFFD96E1D2A570B006C7A62 /* TransitionAnimationOBJ.m */,
+				ECFFD9731D2A5BCB006C7A62 /* TransitionFromViewController.h */,
+				ECFFD9741D2A5BCB006C7A62 /* TransitionFromViewController.m */,
+				ECFFD9701D2A5BB9006C7A62 /* TransitionToViewController.h */,
+				ECFFD9711D2A5BB9006C7A62 /* TransitionToViewController.m */,
 				ECFFD96A1D2A2F13006C7A62 /* InteractiveTransition.h */,
 				ECFFD96B1D2A2F13006C7A62 /* InteractiveTransition.m */,
 			);
@@ -359,6 +374,7 @@
 				ECD7BEF91D2358AB007787CF /* CoreTextImageData.m in Sources */,
 				ECFFD95F1D29FE50006C7A62 /* ImageCollectionController.m in Sources */,
 				ECBB49441D2516E100359C31 /* CoreTextViewController.m in Sources */,
+				ECFFD96F1D2A570B006C7A62 /* TransitionAnimationOBJ.m in Sources */,
 				EC99F1E31D212CAF0076E1F3 /* CTAPIView.m in Sources */,
 				EC9BA4291D26550D00810A21 /* HeadImageController.m in Sources */,
 				EC9BA42C1D265BCC00810A21 /* ImageViewController.m in Sources */,
@@ -366,10 +382,12 @@
 				ECFFD9631D2A0BB2006C7A62 /* FirstViewController.m in Sources */,
 				ECD7BF171D23B24F007787CF /* CoreTextUtils.m in Sources */,
 				ECD7BF0D1D23A231007787CF /* ScanImageViewController.m in Sources */,
+				ECFFD9751D2A5BCB006C7A62 /* TransitionFromViewController.m in Sources */,
 				EC6038111D22556C0097FE81 /* CoreTextData.m in Sources */,
 				EC99F1CC1D20AB440076E1F3 /* ViewController.m in Sources */,
 				ECFFD96C1D2A2F13006C7A62 /* InteractiveTransition.m in Sources */,
 				EC99F1DD1D20B8990076E1F3 /* CTView.m in Sources */,
+				ECFFD9721D2A5BB9006C7A62 /* TransitionToViewController.m in Sources */,
 				EC99F1C91D20AB440076E1F3 /* AppDelegate.m in Sources */,
 				EC99F1C61D20AB440076E1F3 /* main.m in Sources */,
 				617587FE1D27EE1E00DBD118 /* UIViewController+Dealloc.m in Sources */,

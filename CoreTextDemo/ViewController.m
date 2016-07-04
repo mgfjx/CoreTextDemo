@@ -29,7 +29,7 @@
     [super viewDidLoad];
     
     titleArray = @[@"CoreText", @"ImageFontBackground",@"ImageViewController", @"TransitionAnimation"];
-    controllers = @[@"CoreTextViewController",@"AttributeStringController",@"ImageViewController", @"SecondViewController"];
+    controllers = @[@"CoreTextViewController",@"AttributeStringController",@"ImageViewController", @"TransitionFromViewController"];
     
     UITableView *table = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     table.delegate = self;

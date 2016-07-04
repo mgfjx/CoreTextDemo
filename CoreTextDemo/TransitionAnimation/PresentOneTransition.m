@@ -8,9 +8,7 @@
 
 #import "PresentOneTransition.h"
 
-@interface PresentOneTransition (){
-    
-}
+@interface PresentOneTransition ()
 
 @property (nonatomic, assign) PresentOneTransitionType type;
 
