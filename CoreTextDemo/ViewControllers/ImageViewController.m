@@ -55,7 +55,22 @@
 
 - (void)selectImageFromCamera{
     
-    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) return;
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        
+        if(AboveIOS(8.4)) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"当前设备不支持相机" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"当前设备不支持相机" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+        return;
+    }
     
     UIImagePickerController  *m_picker = [[UIImagePickerController alloc] init];
     m_picker.sourceType = UIImagePickerControllerSourceTypeCamera;

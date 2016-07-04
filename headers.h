@@ -22,5 +22,8 @@
 #import "UIView+AddFunc.h"
 #import "HeadImageController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import <UIKit/UIKit.h>
+
+#define AboveIOS(versionNumber) ([[UIDevice currentDevice].systemVersion floatValue] >= (versionNumber)) 
 
 #endif /* headers_h */
