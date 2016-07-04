@@ -39,6 +39,10 @@
 		ECD7BF171D23B24F007787CF /* CoreTextUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD7BF161D23B24F007787CF /* CoreTextUtils.m */; };
 		ECD7BF1D1D23C394007787CF /* LinkWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD7BF1C1D23C394007787CF /* LinkWebController.m */; };
 		ECFFD95F1D29FE50006C7A62 /* ImageCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFFD95E1D29FE50006C7A62 /* ImageCollectionController.m */; };
+		ECFFD9631D2A0BB2006C7A62 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFFD9621D2A0BB2006C7A62 /* FirstViewController.m */; };
+		ECFFD9661D2A0BC1006C7A62 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFFD9651D2A0BC1006C7A62 /* SecondViewController.m */; };
+		ECFFD9691D2A0D59006C7A62 /* PresentOneTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFFD9681D2A0D59006C7A62 /* PresentOneTransition.m */; };
+		ECFFD96C1D2A2F13006C7A62 /* InteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFFD96B1D2A2F13006C7A62 /* InteractiveTransition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +104,14 @@
 		ECD7BF1C1D23C394007787CF /* LinkWebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkWebController.m; sourceTree = "<group>"; };
 		ECFFD95D1D29FE4F006C7A62 /* ImageCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionController.h; sourceTree = "<group>"; };
 		ECFFD95E1D29FE50006C7A62 /* ImageCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionController.m; sourceTree = "<group>"; };
+		ECFFD9611D2A0BB2006C7A62 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		ECFFD9621D2A0BB2006C7A62 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		ECFFD9641D2A0BC1006C7A62 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		ECFFD9651D2A0BC1006C7A62 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		ECFFD9671D2A0D59006C7A62 /* PresentOneTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentOneTransition.h; sourceTree = "<group>"; };
+		ECFFD9681D2A0D59006C7A62 /* PresentOneTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentOneTransition.m; sourceTree = "<group>"; };
+		ECFFD96A1D2A2F13006C7A62 /* InteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractiveTransition.h; sourceTree = "<group>"; };
+		ECFFD96B1D2A2F13006C7A62 /* InteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InteractiveTransition.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +179,7 @@
 		EC99F1C31D20AB440076E1F3 /* CoreTextDemo */ = {
 			isa = PBXGroup;
 			children = (
+				ECFFD9601D2A0B1C006C7A62 /* TransitionAnimation */,
 				EC6038151D22672D0097FE81 /* CategoryMethod */,
 				ECD7BF0A1D23A1B0007787CF /* ViewControllers */,
 				EC6038081D224CDC0097FE81 /* CoreTextFrameWork */,
@@ -249,6 +262,21 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		ECFFD9601D2A0B1C006C7A62 /* TransitionAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				ECFFD9611D2A0BB2006C7A62 /* FirstViewController.h */,
+				ECFFD9621D2A0BB2006C7A62 /* FirstViewController.m */,
+				ECFFD9641D2A0BC1006C7A62 /* SecondViewController.h */,
+				ECFFD9651D2A0BC1006C7A62 /* SecondViewController.m */,
+				ECFFD9671D2A0D59006C7A62 /* PresentOneTransition.h */,
+				ECFFD9681D2A0D59006C7A62 /* PresentOneTransition.m */,
+				ECFFD96A1D2A2F13006C7A62 /* InteractiveTransition.h */,
+				ECFFD96B1D2A2F13006C7A62 /* InteractiveTransition.m */,
+			);
+			path = TransitionAnimation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -326,6 +354,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECFFD9661D2A0BC1006C7A62 /* SecondViewController.m in Sources */,
+				ECFFD9691D2A0D59006C7A62 /* PresentOneTransition.m in Sources */,
 				ECD7BEF91D2358AB007787CF /* CoreTextImageData.m in Sources */,
 				ECFFD95F1D29FE50006C7A62 /* ImageCollectionController.m in Sources */,
 				ECBB49441D2516E100359C31 /* CoreTextViewController.m in Sources */,
@@ -333,10 +363,12 @@
 				EC9BA4291D26550D00810A21 /* HeadImageController.m in Sources */,
 				EC9BA42C1D265BCC00810A21 /* ImageViewController.m in Sources */,
 				EC6038141D2257010097FE81 /* CTDisplayView.m in Sources */,
+				ECFFD9631D2A0BB2006C7A62 /* FirstViewController.m in Sources */,
 				ECD7BF171D23B24F007787CF /* CoreTextUtils.m in Sources */,
 				ECD7BF0D1D23A231007787CF /* ScanImageViewController.m in Sources */,
 				EC6038111D22556C0097FE81 /* CoreTextData.m in Sources */,
 				EC99F1CC1D20AB440076E1F3 /* ViewController.m in Sources */,
+				ECFFD96C1D2A2F13006C7A62 /* InteractiveTransition.m in Sources */,
 				EC99F1DD1D20B8990076E1F3 /* CTView.m in Sources */,
 				EC99F1C91D20AB440076E1F3 /* AppDelegate.m in Sources */,
 				EC99F1C61D20AB440076E1F3 /* main.m in Sources */,
