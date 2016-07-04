@@ -11,5 +11,6 @@
 @interface ScanImageViewController : UIViewController
 
 @property (nonatomic, strong) NSString *imageName;
+@property (nonatomic, strong) UIImage *image;
 
 @end

@@ -38,6 +38,7 @@
 		ECD7BF141D23AF4D007787CF /* CoreTextLinkData.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD7BF131D23AF4D007787CF /* CoreTextLinkData.m */; };
 		ECD7BF171D23B24F007787CF /* CoreTextUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD7BF161D23B24F007787CF /* CoreTextUtils.m */; };
 		ECD7BF1D1D23C394007787CF /* LinkWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD7BF1C1D23C394007787CF /* LinkWebController.m */; };
+		ECFFD95F1D29FE50006C7A62 /* ImageCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFFD95E1D29FE50006C7A62 /* ImageCollectionController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,8 @@
 		ECD7BF161D23B24F007787CF /* CoreTextUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextUtils.m; sourceTree = "<group>"; };
 		ECD7BF1B1D23C394007787CF /* LinkWebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkWebController.h; sourceTree = "<group>"; };
 		ECD7BF1C1D23C394007787CF /* LinkWebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkWebController.m; sourceTree = "<group>"; };
+		ECFFD95D1D29FE4F006C7A62 /* ImageCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionController.h; sourceTree = "<group>"; };
+		ECFFD95E1D29FE50006C7A62 /* ImageCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +243,8 @@
 				ECBB49471D251B5300359C31 /* AttributeStringController.m */,
 				EC9BA42A1D265BCC00810A21 /* ImageViewController.h */,
 				EC9BA42B1D265BCC00810A21 /* ImageViewController.m */,
+				ECFFD95D1D29FE4F006C7A62 /* ImageCollectionController.h */,
+				ECFFD95E1D29FE50006C7A62 /* ImageCollectionController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECD7BEF91D2358AB007787CF /* CoreTextImageData.m in Sources */,
+				ECFFD95F1D29FE50006C7A62 /* ImageCollectionController.m in Sources */,
 				ECBB49441D2516E100359C31 /* CoreTextViewController.m in Sources */,
 				EC99F1E31D212CAF0076E1F3 /* CTAPIView.m in Sources */,
 				EC9BA4291D26550D00810A21 /* HeadImageController.m in Sources */,

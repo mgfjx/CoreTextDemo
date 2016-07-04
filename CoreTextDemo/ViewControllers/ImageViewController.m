@@ -8,6 +8,7 @@
 
 #import "ImageViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "ImageCollectionController.h"
 
 @interface ImageViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>{
     UIImageView *imageView;
@@ -33,7 +34,7 @@
 
 - (void)selectImage{
     
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"选择图片" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"图库", @"相机", nil];
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"选择图片" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"单张图库", @"多张图片", @"相机", nil];
     [sheet showInView:self.view];
     
 }
@@ -42,7 +43,6 @@
     
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) return;
     
-    //    self.snapCallBack(nil);
     UIImagePickerController  *m_picker = [[UIImagePickerController alloc] init];
     m_picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     m_picker.allowsEditing = YES;
@@ -58,7 +58,7 @@
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
         
         if(AboveIOS(8.4)) {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"当前设备不支持相机" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"当前设备不支持相机%@",[UIDevice currentDevice].systemVersion] preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
             }];
@@ -129,6 +129,13 @@
     
 }
 
+- (void)selectImagesFromAlbum{
+    
+    ImageCollectionController *vc = [[ImageCollectionController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
@@ -141,6 +148,10 @@
             break;
             
         case 1:
+            [self selectImagesFromAlbum];
+            break;
+            
+        case 2:
             [self selectImageFromCamera];
             break;
             
