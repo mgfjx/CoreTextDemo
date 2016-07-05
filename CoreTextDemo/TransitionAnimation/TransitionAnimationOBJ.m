@@ -56,16 +56,18 @@
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
+    UIView *fromView = [fromVC.view snapshotViewAfterScreenUpdates:YES];
+    fromView.frame = fromVC.view.frame;
+    fromVC.view.hidden = YES;
+    
     UIView *containerView = [transitionContext containerView];
     [containerView addSubview:toVC.view];
-//    [containerView addSubview:fromVC.view];
+    [containerView addSubview:fromView];
     
-    toVC.view.alpha = 0;
     NSLog(@"toVC:%@ ----- fromVC:%@",NSStringFromClass([toVC class]),NSStringFromClass([fromVC class]));
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
        
-        fromVC.view.alpha = 0;
-        toVC.view.alpha = 1.0;
+        fromView.x = fromView.width - 60;
         
     } completion:^(BOOL finished) {
         
@@ -82,17 +84,15 @@
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
-//    UIView *toView = [transitionContext containerView].subviews.lastObject;
+    UIView *fromView = [transitionContext containerView].subviews.lastObject;
     NSLog(@"toVC:%@ ----- fromVC:%@",NSStringFromClass([toVC class]),NSStringFromClass([fromVC class]));
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         
-        fromVC.view.alpha = 0;
-        toVC.view.alpha = 1.0;
+        fromView.x = 0;
         
     } completion:^(BOOL finished) {
-        
         [transitionContext completeTransition:YES];
-        
+        toVC.view.hidden = NO;
     }];
 }
 
