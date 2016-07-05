@@ -49,6 +49,17 @@
     [_interactivePush addPanGestureForViewController:self];
 //    [_interactivePush addSwipeGestureForViewController:self direction:UISwipeGestureRecognizerDirectionUp];
     
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(changeColor) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    
+}
+
+- (void)changeColor{
+    CGFloat r = random()%255/255.0;
+    CGFloat g = random()%255/255.0;
+    CGFloat b = random()%255/255.0;
+    
+    self.view.backgroundColor = [UIColor colorWithRed:r green:g blue:b alpha:1.0];
 }
 
 - (void)presentVC{

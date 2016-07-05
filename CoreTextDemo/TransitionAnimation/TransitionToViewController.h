@@ -7,7 +7,10 @@
 //
 
 #import "BasicViewController.h"
+#import "TransitionFromViewController.h"
 
 @interface TransitionToViewController : BasicViewController
+
+@property (nonatomic, strong) TransitionFromViewController *fromVC;
 
 @end
