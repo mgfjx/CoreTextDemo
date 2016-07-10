@@ -11,7 +11,8 @@
 @implementation UnityTool
 
 
-+ (void)countDownWithTime:(NSTimeInterval)time timeOutCallBack:(TimeOutCallBack) timeOutCallBack timeCountCallBack:(TimeCountCallBack) timeCountCallBack{
+
++ (void)countDownWithTime:(NSTimeInterval)time timeOutCallBack:(void (^)())timeOutCallBack timeCountCallBack:(void (^)(int timeLeft))timeCountCallBack{
     
     __block int timeOut = time;//倒计时时间
     
@@ -44,6 +45,7 @@
     dispatch_resume(_timer);
     
 }
+
 
 
 @end
