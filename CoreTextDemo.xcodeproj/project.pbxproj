@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6138B65C1D320000006D31B6 /* UnityTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6138B65B1D320000006D31B6 /* UnityTool.m */; };
 		617587FE1D27EE1E00DBD118 /* UIViewController+Dealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = 617587FD1D27EE1E00DBD118 /* UIViewController+Dealloc.m */; };
 		EC60380B1D224D040097FE81 /* CTFrameParserConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EC60380A1D224D040097FE81 /* CTFrameParserConfig.m */; };
 		EC60380E1D224E310097FE81 /* CTFrameParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EC60380D1D224E310097FE81 /* CTFrameParser.m */; };
@@ -49,6 +50,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6138B65A1D320000006D31B6 /* UnityTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnityTool.h; sourceTree = "<group>"; };
+		6138B65B1D320000006D31B6 /* UnityTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnityTool.m; sourceTree = "<group>"; };
 		617587FC1D27EE1E00DBD118 /* UIViewController+Dealloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Dealloc.h"; sourceTree = "<group>"; };
 		617587FD1D27EE1E00DBD118 /* UIViewController+Dealloc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Dealloc.m"; sourceTree = "<group>"; };
 		EC6038071D22463C0097FE81 /* CoreText-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreText-Prefix.pch"; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 				EC6038171D2267450097FE81 /* UIView+AddFunc.m */,
 				617587FC1D27EE1E00DBD118 /* UIViewController+Dealloc.h */,
 				617587FD1D27EE1E00DBD118 /* UIViewController+Dealloc.m */,
+				6138B65A1D320000006D31B6 /* UnityTool.h */,
+				6138B65B1D320000006D31B6 /* UnityTool.m */,
 			);
 			path = CategoryMethod;
 			sourceTree = "<group>";
@@ -389,6 +394,7 @@
 				EC99F1DD1D20B8990076E1F3 /* CTView.m in Sources */,
 				ECFFD9721D2A5BB9006C7A62 /* TransitionToViewController.m in Sources */,
 				EC99F1C91D20AB440076E1F3 /* AppDelegate.m in Sources */,
+				6138B65C1D320000006D31B6 /* UnityTool.m in Sources */,
 				EC99F1C61D20AB440076E1F3 /* main.m in Sources */,
 				617587FE1D27EE1E00DBD118 /* UIViewController+Dealloc.m in Sources */,
 				EC6038181D2267450097FE81 /* UIView+AddFunc.m in Sources */,

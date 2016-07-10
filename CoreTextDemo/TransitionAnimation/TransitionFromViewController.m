@@ -18,11 +18,37 @@
     
     self.view.backgroundColor = [UIColor colorWithRed:0.133 green:0.702 blue:0.069 alpha:1.000];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handlerTap:)];
-    [self.view addGestureRecognizer:tap];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(100, 100, 200, 100);
+    [btn setTitle:@"发送验证码" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(testTimevOut:) forControlEvents:UIControlEventTouchUpInside];
     
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(changeColor) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    [self.view addSubview:btn];
+    
+}
+
+- (void)testTimevOut:(UIButton *)sender{
+    
+    [UnityTool countDownWithTime:59 timeOutCallBack:^{
+        
+        [sender setTitle:@"重新发送验证码" forState:UIControlStateNormal];
+        sender.userInteractionEnabled = YES;
+        
+    } timeCountCallBack:^(int timeLeft) {
+        
+        [UIView beginAnimations:nil context:nil];
+        
+        [UIView setAnimationDuration:1];
+        
+        [sender setTitle:[NSString stringWithFormat:@"%d",timeLeft] forState:UIControlStateNormal];
+        
+        [UIView commitAnimations];
+        
+        sender.userInteractionEnabled = NO;
+        
+    }];
+    
 }
 
 - (void)changeColor{
