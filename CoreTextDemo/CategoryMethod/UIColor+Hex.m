@@ -10,6 +10,7 @@
 
 @implementation UIColor (Hex)
 
+#pragma mark - hex color
 + (instancetype)colorWithHex:(int)hexNumber alpha:(CGFloat)alpha{
     
     if (hexNumber > 0xFFFFFF) return nil;
@@ -56,6 +57,20 @@
 
 + (instancetype)colorWithHexString:(NSString *)hexString{
     return [UIColor colorWithHexString:hexString alpha:1.0f];
+}
+
+#pragma mark - random color
++ (instancetype)randomColor{
+    return [UIColor randomColorWithAlpha:1.0];
+}
+
++ (instancetype)randomColorWithAlpha:(CGFloat)alpha{
+    
+    CGFloat r = random()%255/255.0;
+    CGFloat g = random()%255/255.0;
+    CGFloat b = random()%255/255.0;
+    
+    return [UIColor colorWithRed:r green:g blue:b alpha:alpha];
 }
 
 @end
