@@ -10,6 +10,9 @@
 
 @interface UIColor (Hex)
 
+/**
+ hex string value e.g:0xFFFFFF
+ */
 @property (nonatomic, readonly) NSString *stringColor;
 
 /**
