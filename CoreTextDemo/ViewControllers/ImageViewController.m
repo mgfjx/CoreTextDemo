@@ -21,11 +21,13 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor colorWithHexString:@"0xfabcda"];
+    
     [self initRightBarButton:@"选择图片" action:@selector(selectImage)];
     
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     imgView.contentMode = UIViewContentModeScaleAspectFit;
-    imgView.backgroundColor = [UIColor lightGrayColor];
+//    imgView.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:imgView];
     
     imageView = imgView;

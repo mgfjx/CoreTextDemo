@@ -24,6 +24,8 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <UIKit/UIKit.h>
 #import "UnityTool.h"
+#import "UIColor+Hex.h"
+>>>>>>> TransitioAnimation
 
 #define AboveIOS(versionNumber) ([[UIDevice currentDevice].systemVersion floatValue] >= (versionNumber)) 
 
