@@ -94,14 +94,16 @@
         blue = floor(components[0] * 255);
     }
     
-    int hexNumber = (red << 16) | (green << 8) | blue;
+    int hexNumber = 0x1000000 | (red << 16) | (green << 8) | blue;//防止0开头省略情况
     
     char ch[6];
     sprintf(ch, "%X", hexNumber);
     
     NSString *colorString = [NSString stringWithCString:ch encoding:NSUTF8StringEncoding];
     
-    return [NSString stringWithFormat:@"0x%@",colorString];
+    colorString = [colorString substringFromIndex:1];
+    
+    return [NSString stringWithFormat:@"0x%@",colorString ];
 }
 
 @end
