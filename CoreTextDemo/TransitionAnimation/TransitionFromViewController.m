@@ -21,17 +21,13 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handlerTap:)];
     [self.view addGestureRecognizer:tap];
     
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.25 target:self selector:@selector(changeColor) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(changeColor) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
 - (void)changeColor{
     
     self.view.backgroundColor = [UIColor randomColor];
-    
-    UIColor *color = self.view.backgroundColor;
-    
-    NSLog(@"%@",color.stringColor);
     
 }
 

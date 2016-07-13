@@ -42,7 +42,10 @@
 }
 
 - (void)handlerTap:(UIGestureRecognizer *)tap{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    CGPoint point = [tap locationInView:self.view];
+    if (point.x > self.view.width - 140) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate

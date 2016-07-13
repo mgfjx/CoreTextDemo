@@ -56,8 +56,8 @@
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
-//    UIView *fromView = [fromVC.view snapshotViewAfterScreenUpdates:NO];
-    UIView *fromView = [fromVC.view copy];
+    UIView *fromView = [fromVC.view snapshotViewAfterScreenUpdates:NO];
+    fromView.userInteractionEnabled = NO;
     fromView.frame = fromVC.view.frame;
 //    fromVC.view.hidden = YES;
     
@@ -68,14 +68,11 @@
     NSLog(@"toVC:%@ ----- fromVC:%@",NSStringFromClass([toVC class]),NSStringFromClass([fromVC class]));
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
        
-        fromView.x = fromView.width - 140;
-        fromView.transform = CGAffineTransformMakeScale(0.9, 0.9);
-        
-//        fromVC.view.x = fromView.width - 140;
-//        fromVC.view.transform = CGAffineTransformMakeScale(0.9, 0.9);
+//        fromView.x = fromView.width - 140;
+        fromView.transform = CGAffineTransformMakeScale(0.0001, 0.0001);
         
     } completion:^(BOOL finished) {
-        
+        fromView.hidden = NO;
         [transitionContext completeTransition:YES];
         
     }];
@@ -91,9 +88,10 @@
     UIView *toView = containerView.subviews.lastObject;
     UIView *fromView = containerView.subviews.firstObject;
     
+    toView.hidden = NO;
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-        toView.x = 0;
-        toView.transform = CGAffineTransformIdentity;
+        
+        toView.transform = CGAffineTransformMakeScale(1.0, 1.0);
         
     } completion:^(BOOL finished) {
         toView.hidden = NO;
