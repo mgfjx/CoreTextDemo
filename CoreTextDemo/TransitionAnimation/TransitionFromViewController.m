@@ -26,11 +26,13 @@
 }
 
 - (void)changeColor{
-    CGFloat r = random()%255/255.0;
-    CGFloat g = random()%255/255.0;
-    CGFloat b = random()%255/255.0;
     
-    self.view.backgroundColor = [UIColor colorWithRed:r green:g blue:b alpha:1.0];
+    self.view.backgroundColor = [UIColor randomColor];
+    
+    UIColor *color = self.view.backgroundColor;
+    
+    NSLog(@"%@",color.stringColor);
+    
 }
 
 - (void)handlerTap:(UIGestureRecognizer *)tap{

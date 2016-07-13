@@ -73,4 +73,35 @@
     return [UIColor colorWithRed:r green:g blue:b alpha:alpha];
 }
 
+- (NSString *)stringColor{
+    
+    CGColorRef cgColor = self.CGColor;
+    
+    int red = 0, green = 0, blue = 0;
+    
+    int size = (int)CGColorGetNumberOfComponents(cgColor);
+    if (size == 4) {
+        const CGFloat *components = CGColorGetComponents(cgColor);
+        red = floor(components[0] * 255);
+        green = floor(components[1] * 255);
+        blue = floor(components[2] * 255);
+    }
+    
+    if(size == 2){
+        const CGFloat *components = CGColorGetComponents(cgColor);
+        red = floor(components[0] * 255);
+        green = floor(components[0] * 255);
+        blue = floor(components[0] * 255);
+    }
+    
+    int hexNumber = (red << 16) | (green << 8) | blue;
+    
+    char ch[6];
+    sprintf(ch, "%X", hexNumber);
+    
+    NSString *colorString = [NSString stringWithCString:ch encoding:NSUTF8StringEncoding];
+    
+    return [NSString stringWithFormat:@"0x%@",colorString];
+}
+
 @end

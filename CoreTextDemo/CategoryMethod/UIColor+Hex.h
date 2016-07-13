@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface UIColor (Hex)
+
+@property (nonatomic, readonly) NSString *stringColor;
+
 /**
  @param hexString   NSString e.g:@"0xFC5B13"
  @param alpha		alhpa
