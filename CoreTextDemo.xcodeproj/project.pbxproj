@@ -15,6 +15,7 @@
 		EC6038141D2257010097FE81 /* CTDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6038131D2257010097FE81 /* CTDisplayView.m */; };
 		EC6038181D2267450097FE81 /* UIView+AddFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6038171D2267450097FE81 /* UIView+AddFunc.m */; };
 		EC60381A1D227D110097FE81 /* modelData in Resources */ = {isa = PBXBuildFile; fileRef = EC6038191D227D110097FE81 /* modelData */; };
+		EC7153821D3643C00020A9AD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7153811D3643C00020A9AD /* UIColor+Hex.m */; };
 		EC99F1C61D20AB440076E1F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC99F1C51D20AB440076E1F3 /* main.m */; };
 		EC99F1C91D20AB440076E1F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC99F1C81D20AB440076E1F3 /* AppDelegate.m */; };
 		EC99F1CC1D20AB440076E1F3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC99F1CB1D20AB440076E1F3 /* ViewController.m */; };
@@ -66,6 +67,8 @@
 		EC6038161D2267450097FE81 /* UIView+AddFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AddFunc.h"; sourceTree = "<group>"; };
 		EC6038171D2267450097FE81 /* UIView+AddFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AddFunc.m"; sourceTree = "<group>"; };
 		EC6038191D227D110097FE81 /* modelData */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = modelData; path = CoreTextDemo/modelData; sourceTree = "<group>"; };
+		EC7153801D3643C00020A9AD /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		EC7153811D3643C00020A9AD /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		EC99F1C11D20AB440076E1F3 /* CoreTextDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreTextDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC99F1C51D20AB440076E1F3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EC99F1C71D20AB440076E1F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -167,6 +170,8 @@
 				617587FD1D27EE1E00DBD118 /* UIViewController+Dealloc.m */,
 				6138B65A1D320000006D31B6 /* UnityTool.h */,
 				6138B65B1D320000006D31B6 /* UnityTool.m */,
+				EC7153801D3643C00020A9AD /* UIColor+Hex.h */,
+				EC7153811D3643C00020A9AD /* UIColor+Hex.m */,
 			);
 			path = CategoryMethod;
 			sourceTree = "<group>";
@@ -395,6 +400,7 @@
 				ECFFD9721D2A5BB9006C7A62 /* TransitionToViewController.m in Sources */,
 				EC99F1C91D20AB440076E1F3 /* AppDelegate.m in Sources */,
 				6138B65C1D320000006D31B6 /* UnityTool.m in Sources */,
+				EC7153821D3643C00020A9AD /* UIColor+Hex.m in Sources */,
 				EC99F1C61D20AB440076E1F3 /* main.m in Sources */,
 				617587FE1D27EE1E00DBD118 /* UIViewController+Dealloc.m in Sources */,
 				EC6038181D2267450097FE81 /* UIView+AddFunc.m in Sources */,
