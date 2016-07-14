@@ -8,11 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^TimeOutCallBack)();
-typedef void(^TimeCountCallBack)(int timeLeft);
-
 @interface UnityTool : NSObject
 
-+ (void)countDownWithTime:(NSTimeInterval)time timeOutCallBack:(TimeOutCallBack) timeOutCallBack timeCountCallBack:(TimeCountCallBack) timeCountCallBack;
++ (void)countDownWithTime:(NSTimeInterval)time timeOutCallBack:(void (^)()) timeOutCallBack timeCountCallBack:(void (^)(int timeLeft)) timeCountCallBack;
 
 @end

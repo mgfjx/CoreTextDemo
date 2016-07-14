@@ -26,6 +26,7 @@
 		EC99F1E31D212CAF0076E1F3 /* CTAPIView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC99F1E21D212CAF0076E1F3 /* CTAPIView.m */; };
 		EC9BA4291D26550D00810A21 /* HeadImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9BA4281D26550D00810A21 /* HeadImageController.m */; };
 		EC9BA42C1D265BCC00810A21 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9BA42B1D265BCC00810A21 /* ImageViewController.m */; };
+		ECB960F71D375CCC00005C3F /* YLImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB960F61D375CCC00005C3F /* YLImageScrollView.m */; };
 		ECBB49441D2516E100359C31 /* CoreTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBB49431D2516E100359C31 /* CoreTextViewController.m */; };
 		ECBB49481D251B5300359C31 /* AttributeStringController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBB49471D251B5300359C31 /* AttributeStringController.m */; };
 		ECBB494B1D251C2200359C31 /* BasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBB494A1D251C2200359C31 /* BasicViewController.m */; };
@@ -87,6 +88,8 @@
 		EC9BA4281D26550D00810A21 /* HeadImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadImageController.m; sourceTree = "<group>"; };
 		EC9BA42A1D265BCC00810A21 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		EC9BA42B1D265BCC00810A21 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		ECB960F51D375CCC00005C3F /* YLImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLImageScrollView.h; sourceTree = "<group>"; };
+		ECB960F61D375CCC00005C3F /* YLImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLImageScrollView.m; sourceTree = "<group>"; };
 		ECBB49421D2516E100359C31 /* CoreTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextViewController.h; sourceTree = "<group>"; };
 		ECBB49431D2516E100359C31 /* CoreTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextViewController.m; sourceTree = "<group>"; };
 		ECBB49461D251B5300359C31 /* AttributeStringController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttributeStringController.h; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 				6138B65B1D320000006D31B6 /* UnityTool.m */,
 				EC7153801D3643C00020A9AD /* UIColor+Hex.h */,
 				EC7153811D3643C00020A9AD /* UIColor+Hex.m */,
+				ECB960F51D375CCC00005C3F /* YLImageScrollView.h */,
+				ECB960F61D375CCC00005C3F /* YLImageScrollView.m */,
 			);
 			path = CategoryMethod;
 			sourceTree = "<group>";
@@ -395,6 +400,7 @@
 				ECFFD9751D2A5BCB006C7A62 /* TransitionFromViewController.m in Sources */,
 				EC6038111D22556C0097FE81 /* CoreTextData.m in Sources */,
 				EC99F1CC1D20AB440076E1F3 /* ViewController.m in Sources */,
+				ECB960F71D375CCC00005C3F /* YLImageScrollView.m in Sources */,
 				ECFFD96C1D2A2F13006C7A62 /* InteractiveTransition.m in Sources */,
 				EC99F1DD1D20B8990076E1F3 /* CTView.m in Sources */,
 				ECFFD9721D2A5BB9006C7A62 /* TransitionToViewController.m in Sources */,

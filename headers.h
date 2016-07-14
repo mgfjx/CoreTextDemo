@@ -25,6 +25,7 @@
 #import <UIKit/UIKit.h>
 #import "UnityTool.h"
 #import "UIColor+Hex.h"
+#import "YLImageScrollView.h"
 
 #define AboveIOS(versionNumber) ([[UIDevice currentDevice].systemVersion floatValue] >= (versionNumber)) 
 
