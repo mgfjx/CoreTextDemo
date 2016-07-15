@@ -8,18 +8,10 @@
 
 #import "YLImageScrollView.h"
 
-#define SET_FRAME(ARTICLEX) x = ARTICLEX.frame.origin.x + increase;\
-if(x < 0) x = pageWidth * 2;\
-if(x > pageWidth * 2) x = 0.0f;\
-[ARTICLEX setFrame:CGRectMake(x, \
-ARTICLEX.frame.origin.y,\
-ARTICLEX.frame.size.width,\
-ARTICLEX.frame.size.height)]
-
 @interface YLImageScrollView ()<UIScrollViewDelegate>{
     
     UIScrollView *imageScrollView;
-    NSArray *imageViews;
+    NSArray *imageViewsArray;
     NSArray *imagesArray;
     UIPageControl *pageControlView;
     
@@ -36,10 +28,7 @@ ARTICLEX.frame.size.height)]
 @implementation YLImageScrollView
 
 - (void)dealloc{
-    if (_timer) {
-        [_timer invalidate];
-        _timer = nil;
-    }
+    NSLog(@"%@ dealloc", NSStringFromClass([self class]));
 }
 
 - (instancetype)init{
@@ -65,7 +54,6 @@ ARTICLEX.frame.size.height)]
     _timeInterval = 2.0f;
     _autoScroll = YES;
     _showPageControl = YES;
-    imageViews = [NSMutableArray array];
     
     UIScrollView *scroll = [[UIScrollView alloc] init];
     scroll.pagingEnabled = YES;
@@ -75,16 +63,8 @@ ARTICLEX.frame.size.height)]
     [self addSubview:scroll];
     imageScrollView = scroll;
     
-    NSArray *imageArray = [self.dataSource imageScrollViewDataSource];
-    
-    NSMutableArray *images = [NSMutableArray array];
-    NSArray *names = @[@"sdxl.jpg",@"exp.png",@"gtl.jpg",@"QRcode.png",@"lrt.jpg"];
-    for (int i = 0; i < names.count; i ++) {
-        [images addObject:[UIImage imageNamed:names[i]]];
-    }
-    
-    imageArray = [images copy];
-    imagesArray = imageArray;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage:)];
+    [scroll addGestureRecognizer:tap];
     
     {
         UIImageView *imageView = [[UIImageView alloc] init];
@@ -104,42 +84,18 @@ ARTICLEX.frame.size.height)]
         rightImageView = imageView;
     }
     
-    imageViews = @[leftImageView,middleImageView,rightImageView];
+    imageViewsArray = @[leftImageView,middleImageView,rightImageView];
     
     UIPageControl * pageControl = [[UIPageControl alloc] init];
-    pageControl.numberOfPages = names.count;
     pageControl.currentPage = 0;
     [self addSubview:pageControl];
     pageControlView = pageControl;
-    
-    [self initFrames];
 }
 
-- (void)setDefaultImage{
-    
-    [imageScrollView setContentOffset:CGPointMake(imageScrollView.bounds.size.width, 0) animated:NO];
-    leftImageView.image = imagesArray.lastObject;
-    middleImageView.image = imagesArray.firstObject;
-    rightImageView.image = imagesArray[1];
-    
-}
-
-- (void)initFrames{
-    
-    pageControlView.hidden = !self.showPageControl;
-    pageControlView.pageIndicatorTintColor = self.pageTinkColor;
-    pageControlView.currentPageIndicatorTintColor = self.pageCurrentColor;
-    
-    imageScrollView.frame = self.bounds;
-    pageControlView.frame = CGRectMake(self.bounds.size.width / 2, self.bounds.size.height - 30, 40, 30);
-    
-    imageScrollView.contentSize = CGSizeMake(self.bounds.size.width * imageViews.count, self.bounds.size.height);
-    
-    for (int i = 0; i < 3; i++) {
-        UIImageView *imageView = imageViews[i];
-        imageView.frame = CGRectMake(i * imageScrollView.bounds.size.width, 0, imageScrollView.bounds.size.width, imageScrollView.bounds.size.height);
+- (void)tapImage:(UIGestureRecognizer *)tap{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(onClickOnImageIndex:)]) {
+        [self.delegate onClickOnImageIndex:currentPage];
     }
-    [self setDefaultImage];
 }
 
 - (void)autoScrollImage{
@@ -149,24 +105,89 @@ ARTICLEX.frame.size.height)]
     [scrollView setContentOffset:CGPointMake(offset_x + scrollView.bounds.size.width, 0) animated:YES];
 }
 
+#pragma mark - view load method
+
+- (void)removeFromSuperview{
+    [super removeFromSuperview];
+    if (_timer) {
+        [_timer invalidate];
+        _timer = nil;
+    }
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+}
+
 - (void)willMoveToSuperview:(UIView *)newSuperview{
+    if (newSuperview) {
+        [self configureViews];
+    }
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+}
+
+- (void)configureViews{
+    [self initFrames];
+    
+    imagesArray = [self.dataSource imageScrollViewDataSource];
+    if (!imagesArray || imagesArray.count == 0) {
+        self.userInteractionEnabled = NO;
+        return;
+    }
+    
+    pageControlView.hidden = !self.showPageControl;
+    pageControlView.pageIndicatorTintColor = self.pageTinkColor;
+    pageControlView.currentPageIndicatorTintColor = self.pageCurrentColor;
+    pageControlView.numberOfPages = imagesArray.count;
+    
+    [self setDefaultImage];
     
     if (self.autoScroll) {
         NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:self.timeInterval target:self selector:@selector(autoScrollImage) userInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
         _timer = timer;
     }
+}
+
+- (void)initFrames{
+    
+    imageScrollView.frame = self.bounds;
+    pageControlView.frame = CGRectMake(self.bounds.size.width / 2, self.bounds.size.height - 30, 40, 30);
+    
+    imageScrollView.contentSize = CGSizeMake(self.bounds.size.width * imageViewsArray.count, self.bounds.size.height);
+    
+    for (int i = 0; i < 3; i++) {
+        UIImageView *imageView = imageViewsArray[i];
+        imageView.frame = CGRectMake(i * imageScrollView.bounds.size.width, 0, imageScrollView.bounds.size.width, imageScrollView.bounds.size.height);
+    }
     
 }
 
-- (void)layoutSubviews{
-    [super layoutSubviews];
+- (void)setDefaultImage{
+    
+    UIImage *leftImage, *middleImage, *rightImage;
+    
+    if (imagesArray.count == 1) {
+        leftImage = middleImage = rightImage = imagesArray.firstObject;
+    }else if (imagesArray.count == 2){
+        leftImage = rightImage = imagesArray.lastObject;
+        middleImage = imagesArray.firstObject;
+    }else{
+        leftImage = imagesArray.lastObject;
+        middleImage = imagesArray.firstObject;
+        rightImage = imagesArray[1];
+    }
+    
+    [imageScrollView setContentOffset:CGPointMake(imageScrollView.bounds.size.width, 0) animated:NO];
+    leftImageView.image = leftImage;
+    middleImageView.image = middleImage;
+    rightImageView.image = rightImage;
+    
 }
 
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    [_timer setFireDate:[NSDate distantFuture]];
+    if (_timer) {
+        [_timer setFireDate:[NSDate distantFuture]];
+    }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
@@ -174,8 +195,9 @@ ARTICLEX.frame.size.height)]
     [self reloadImage];
     
     [scrollView setContentOffset:CGPointMake(scrollView.bounds.size.width, 0) animated:NO];
-    
-    [_timer setFireDate:[NSDate dateWithTimeInterval:1.0f sinceDate:[NSDate date]]];
+    if (_timer) {
+        [_timer setFireDate:[NSDate dateWithTimeInterval:1.0f sinceDate:[NSDate date]]];
+    }
     
     NSLog(@"scrollViewDidEndDecelerating");
 }
@@ -190,25 +212,32 @@ ARTICLEX.frame.size.height)]
 - (void)reloadImage{
     
     NSInteger leftImageIndex, rightImageIndex;
+    NSArray *images = imagesArray;
     
     UIScrollView *scrollView = imageScrollView;
     CGFloat offset_x = scrollView.contentOffset.x;
     
     if (offset_x > scrollView.bounds.size.width) {
-        currentPage = (currentPage + 1) % imagesArray.count;
+        currentPage = (currentPage + 1) % images.count;
     }else if(offset_x < scrollView.bounds.size.width){
-        currentPage = (currentPage + imagesArray.count - 1) % imagesArray.count;
+        currentPage = (currentPage + images.count - 1) % images.count;
     }
     
-    middleImageView.image = imagesArray[currentPage];
+    middleImageView.image = images[currentPage];
     
-    leftImageIndex = (currentPage + imagesArray.count - 1) % imagesArray.count;
-    rightImageIndex = (currentPage + 1) % imagesArray.count;
+    leftImageIndex = (currentPage + images.count - 1) % images.count;
+    rightImageIndex = (currentPage + 1) % images.count;
     
-    leftImageView.image = imagesArray[leftImageIndex];
-    rightImageView.image = imagesArray[rightImageIndex];
+    leftImageView.image = images[leftImageIndex];
+    rightImageView.image = images[rightImageIndex];
     
     pageControlView.currentPage = currentPage;
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    
+    
 }
 
 @end
