@@ -25,7 +25,7 @@
     self.extendedLayoutIncludesOpaqueBars = NO;
     self.modalPresentationCapturesStatusBarAppearance = NO;
     
-    self.view.backgroundColor = [UIColor colorWithHexString:@"0xfabcda"];
+    self.view.backgroundColor = [UIColor whiteColor];
     
 //    [self initRightBarButton:@"选择图片" action:@selector(selectImage)];
     

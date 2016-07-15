@@ -29,4 +29,6 @@
 @property (nonatomic, strong) UIColor *pageCurrentColor;
 @property (nonatomic, strong) UIColor *pageTinkColor;
 
+@property (nonatomic, strong) NSArray *dataArray;
+
 @end
