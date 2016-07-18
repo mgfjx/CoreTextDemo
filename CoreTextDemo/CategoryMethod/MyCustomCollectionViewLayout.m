@@ -105,7 +105,6 @@
                 CGFloat earchPartHeight = self.collectionView.bounds.size.height / maxNumOfVerty;
                 y = verticalIndex * earchPartHeight + (earchPartHeight - self.itemSize.height)/2;
                 
-                NSLog(@"section = %ld", indexPath.section);
             }
             break;
         }

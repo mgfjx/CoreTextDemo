@@ -49,6 +49,7 @@
 		ECD25B011D3C7C5000388F5F /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD25AF11D3C7C5000388F5F /* UIView+WebCacheOperation.m */; };
 		ECD25B041D3C9AA100388F5F /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD25B031D3C9AA100388F5F /* CollectionViewController.m */; };
 		ECD25B071D3C9E5800388F5F /* MyCustomCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD25B061D3C9E5800388F5F /* MyCustomCollectionViewLayout.m */; };
+		ECD25B0A1D3CDD2000388F5F /* CircleCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD25B091D3CDD2000388F5F /* CircleCollectionViewLayout.m */; };
 		ECD7BEF91D2358AB007787CF /* CoreTextImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD7BEF81D2358AB007787CF /* CoreTextImageData.m */; };
 		ECD7BF031D23948D007787CF /* exp.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7BF001D23948D007787CF /* exp.png */; };
 		ECD7BF041D23948D007787CF /* QRcode.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7BF011D23948D007787CF /* QRcode.png */; };
@@ -153,6 +154,8 @@
 		ECD25B031D3C9AA100388F5F /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		ECD25B051D3C9E5800388F5F /* MyCustomCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCustomCollectionViewLayout.h; sourceTree = "<group>"; };
 		ECD25B061D3C9E5800388F5F /* MyCustomCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCustomCollectionViewLayout.m; sourceTree = "<group>"; };
+		ECD25B081D3CDD2000388F5F /* CircleCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleCollectionViewLayout.h; sourceTree = "<group>"; };
+		ECD25B091D3CDD2000388F5F /* CircleCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleCollectionViewLayout.m; sourceTree = "<group>"; };
 		ECD7BEF71D2358AB007787CF /* CoreTextImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextImageData.h; sourceTree = "<group>"; };
 		ECD7BEF81D2358AB007787CF /* CoreTextImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextImageData.m; sourceTree = "<group>"; };
 		ECD7BF001D23948D007787CF /* exp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exp.png; sourceTree = "<group>"; };
@@ -234,6 +237,8 @@
 				ECB960F61D375CCC00005C3F /* YLImageScrollView.m */,
 				ECD25B051D3C9E5800388F5F /* MyCustomCollectionViewLayout.h */,
 				ECD25B061D3C9E5800388F5F /* MyCustomCollectionViewLayout.m */,
+				ECD25B081D3CDD2000388F5F /* CircleCollectionViewLayout.h */,
+				ECD25B091D3CDD2000388F5F /* CircleCollectionViewLayout.m */,
 			);
 			path = CategoryMethod;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 				ECD25B001D3C7C5000388F5F /* UIImageView+WebCache.m in Sources */,
 				ECD25B071D3C9E5800388F5F /* MyCustomCollectionViewLayout.m in Sources */,
 				EC99F1DD1D20B8990076E1F3 /* CTView.m in Sources */,
+				ECD25B0A1D3CDD2000388F5F /* CircleCollectionViewLayout.m in Sources */,
 				ECD25AF41D3C7C5000388F5F /* SDImageCache.m in Sources */,
 				ECFFD9721D2A5BB9006C7A62 /* TransitionToViewController.m in Sources */,
 				EC99F1C91D20AB440076E1F3 /* AppDelegate.m in Sources */,
