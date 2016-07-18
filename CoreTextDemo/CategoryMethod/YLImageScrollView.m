@@ -13,6 +13,7 @@
     UIScrollView *imageScrollView;
     NSArray *imageViewsArray;
     NSArray *imagesArray;
+    NSArray *imageURLs;
     UIPageControl *pageControlView;
     
     NSTimer *_timer;
@@ -92,17 +93,11 @@
     pageControlView = pageControl;
 }
 
+#pragma mark - gesture method
 - (void)tapImage:(UIGestureRecognizer *)tap{
     if (self.delegate && [self.delegate respondsToSelector:@selector(onClickOnImageIndex:)]) {
         [self.delegate onClickOnImageIndex:currentPage];
     }
-}
-
-- (void)autoScrollImage{
-    
-    UIScrollView *scrollView = imageScrollView;
-    CGFloat offset_x = scrollView.contentOffset.x;
-    [scrollView setContentOffset:CGPointMake(offset_x + scrollView.bounds.size.width, 0) animated:YES];
 }
 
 #pragma mark - view load method
@@ -126,16 +121,61 @@
 - (void)configureViews{
     [self initFrames];
     
-    imagesArray = [self.dataSource imageScrollViewDataSource];
-    if (!imagesArray || imagesArray.count == 0) {
-        self.userInteractionEnabled = NO;
-        return;
-    }
-    
     pageControlView.hidden = !self.showPageControl;
     pageControlView.pageIndicatorTintColor = self.pageTinkColor;
     pageControlView.currentPageIndicatorTintColor = self.pageCurrentColor;
-    pageControlView.numberOfPages = imagesArray.count;
+    
+    if (self.dataSource) {
+        
+        if ([self.dataSource respondsToSelector:@selector(imageScrollViewImageDataSource)]) {
+            imagesArray = [self.dataSource imageScrollViewImageDataSource];
+            if (!imagesArray || imagesArray.count == 0) {
+                self.userInteractionEnabled = NO;
+                return;
+            }
+            pageControlView.numberOfPages = imagesArray.count;
+            
+        }else if ([self.dataSource respondsToSelector:@selector(imageScrollViewImageURLDataSource)]) {
+            imageURLs = [self.dataSource imageScrollViewImageURLDataSource];
+            if (!imageURLs || imageURLs.count == 0) {
+                self.userInteractionEnabled = NO;
+                return;
+            }
+            pageControlView.numberOfPages = imageURLs.count;
+            
+            if (!self.placeHolderImage) {
+                CGSize size = self.bounds.size;
+                UIGraphicsBeginImageContext(size);
+                CGContextRef context = UIGraphicsGetCurrentContext();
+                UIColor *c0 = [UIColor colorWithWhite:0.702 alpha:1.000];
+                UIColor *c1 = [UIColor colorWithRed:0.055 green:0.036 blue:0.144 alpha:1.000];
+                [c0 setFill];
+                CGContextFillRect(context, CGRectMake(0, 0, size.width, size.height));
+                [c1 setStroke];
+//                CGContextSetLineWidth(context, 2);
+//                for (int i = 0; i < size.width * 2; i+= 4) {
+//                    CGContextMoveToPoint(context, i, -2);
+//                    CGContextAddLineToPoint(context, i - size.height, size.height + 2);
+//                }
+                CGContextStrokeRect(context, CGRectMake(0, 0, size.width, size.height));
+//                CGContextStrokePath(context);
+                UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+                UIGraphicsEndImageContext();
+                self.placeHolderImage = image;
+            }
+            
+            NSMutableArray *defaultImageArray = [NSMutableArray array];
+            for (int i = 0; i < imageURLs.count; i++) {
+                [defaultImageArray addObject:self.placeHolderImage];
+            }
+            imagesArray = [defaultImageArray copy];
+            
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                [self downloadImageWithUrls:imageURLs];
+            });
+        }
+        
+    }
     
     [self setDefaultImage];
     
@@ -144,6 +184,14 @@
         [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
         _timer = timer;
     }
+}
+
+
+- (void)autoScrollImage{
+    
+    UIScrollView *scrollView = imageScrollView;
+    CGFloat offset_x = scrollView.contentOffset.x;
+    [scrollView setContentOffset:CGPointMake(offset_x + scrollView.bounds.size.width, 0) animated:YES];
 }
 
 - (void)initFrames{
@@ -198,14 +246,11 @@
     if (_timer) {
         [_timer setFireDate:[NSDate dateWithTimeInterval:1.0f sinceDate:[NSDate date]]];
     }
-    
-    NSLog(@"scrollViewDidEndDecelerating");
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
     [self reloadImage];
     [scrollView setContentOffset:CGPointMake(scrollView.bounds.size.width, 0) animated:NO];
-    NSLog(@"scrollViewDidEndScrollingAnimation");
 }
 
 #pragma mark - reloadImage
@@ -234,10 +279,33 @@
     pageControlView.currentPage = currentPage;
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+
+#pragma mark - download image with url
+- (void)downloadImageWithUrls:(NSArray *)urls{
+    for (int i = 0; i < urls.count; i++) {
+        NSURL *url = urls[i];
+        [self downloadImageWituURL:url index:i];
+    }
+}
+
+- (void)downloadImageWituURL:(NSURL *)url index:(NSInteger)index{
+    NSURLSession *session = [NSURLSession sharedSession];
     
+    NSMutableArray *images = [NSMutableArray arrayWithArray:imagesArray];
     
+    NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithURL:url completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        NSData *imageData = [NSData dataWithContentsOfURL:location];
+        UIImage *image = [UIImage imageWithData:[imageData copy]];
+        
+        [images replaceObjectAtIndex:index withObject:image];
+        NSLog(@"imageSize = %ld",imageData.length);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            imagesArray = [images copy];
+        });
+    }];
     
+    [downloadTask resume];
 }
 
 @end

@@ -44,7 +44,8 @@
     [self.view addSubview:imageScrollView];
 }
 
-- (NSArray<UIImage *> *)imageScrollViewDataSource{
+/*
+- (NSArray<UIImage *> *)imageScrollViewImageDataSource{
     
     NSArray *imageNames = @[@"sdxl.jpg",@"gtl.jpg",@"lrt.jpg",@"exp.png",@"QRcode.png"];
     NSMutableArray *images = [NSMutableArray array];
@@ -53,6 +54,18 @@
     }
     imagesArray = [images copy];
     return [images copy];
+}
+*/
+
+- (NSArray<NSURL *> *)imageScrollViewImageURLDataSource{
+    NSMutableArray *urls = [NSMutableArray array];
+    NSArray *urlstrings = @[@"http://a.hiphotos.baidu.com/zhidao/pic/item/3812b31bb051f819b671ef24d8b44aed2e73e70c.jpg",
+                            @"http://b.hiphotos.baidu.com/zhidao/pic/item/f2deb48f8c5494ee4979e3772ff5e0fe99257e01.jpg"];
+    for (NSString *str in urlstrings) {
+        NSURL *url = [NSURL URLWithString:str];
+        [urls addObject:url];
+    }
+    return [urls copy];
 }
 
 - (void)onClickOnImageIndex:(NSInteger)index{

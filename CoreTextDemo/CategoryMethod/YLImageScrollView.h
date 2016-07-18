@@ -14,8 +14,13 @@
 @end
 
 @protocol YLImageScrollViewDataSource <NSObject>
-@required
-  - (NSArray<UIImage *> *)imageScrollViewDataSource;
+
+/**
+ delegate must implementation one of methods below
+ */
+- (NSArray<UIImage *> *)imageScrollViewImageDataSource;
+- (NSArray<NSURL *> *)imageScrollViewImageURLDataSource;
+
 @end
 
 @interface YLImageScrollView : UIView
@@ -30,6 +35,6 @@
 @property (nonatomic, strong) UIColor *pageCurrentColor;
 @property (nonatomic, strong) UIColor *pageTinkColor;
 
-@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) UIImage *placeHolderImage;
 
 @end
