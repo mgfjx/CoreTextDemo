@@ -47,6 +47,8 @@
 		ECD25AFF1D3C7C5000388F5F /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD25AED1D3C7C5000388F5F /* UIImageView+HighlightedWebCache.m */; };
 		ECD25B001D3C7C5000388F5F /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD25AEF1D3C7C5000388F5F /* UIImageView+WebCache.m */; };
 		ECD25B011D3C7C5000388F5F /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD25AF11D3C7C5000388F5F /* UIView+WebCacheOperation.m */; };
+		ECD25B041D3C9AA100388F5F /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD25B031D3C9AA100388F5F /* CollectionViewController.m */; };
+		ECD25B071D3C9E5800388F5F /* MyCustomCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD25B061D3C9E5800388F5F /* MyCustomCollectionViewLayout.m */; };
 		ECD7BEF91D2358AB007787CF /* CoreTextImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD7BEF81D2358AB007787CF /* CoreTextImageData.m */; };
 		ECD7BF031D23948D007787CF /* exp.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7BF001D23948D007787CF /* exp.png */; };
 		ECD7BF041D23948D007787CF /* QRcode.png in Resources */ = {isa = PBXBuildFile; fileRef = ECD7BF011D23948D007787CF /* QRcode.png */; };
@@ -147,6 +149,10 @@
 		ECD25AEF1D3C7C5000388F5F /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		ECD25AF01D3C7C5000388F5F /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		ECD25AF11D3C7C5000388F5F /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		ECD25B021D3C9AA100388F5F /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		ECD25B031D3C9AA100388F5F /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		ECD25B051D3C9E5800388F5F /* MyCustomCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCustomCollectionViewLayout.h; sourceTree = "<group>"; };
+		ECD25B061D3C9E5800388F5F /* MyCustomCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCustomCollectionViewLayout.m; sourceTree = "<group>"; };
 		ECD7BEF71D2358AB007787CF /* CoreTextImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextImageData.h; sourceTree = "<group>"; };
 		ECD7BEF81D2358AB007787CF /* CoreTextImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextImageData.m; sourceTree = "<group>"; };
 		ECD7BF001D23948D007787CF /* exp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exp.png; sourceTree = "<group>"; };
@@ -226,6 +232,8 @@
 				EC7153811D3643C00020A9AD /* UIColor+Hex.m */,
 				ECB960F51D375CCC00005C3F /* YLImageScrollView.h */,
 				ECB960F61D375CCC00005C3F /* YLImageScrollView.m */,
+				ECD25B051D3C9E5800388F5F /* MyCustomCollectionViewLayout.h */,
+				ECD25B061D3C9E5800388F5F /* MyCustomCollectionViewLayout.m */,
 			);
 			path = CategoryMethod;
 			sourceTree = "<group>";
@@ -380,6 +388,8 @@
 				EC9BA42B1D265BCC00810A21 /* ImageViewController.m */,
 				ECFFD95D1D29FE4F006C7A62 /* ImageCollectionController.h */,
 				ECFFD95E1D29FE50006C7A62 /* ImageCollectionController.m */,
+				ECD25B021D3C9AA100388F5F /* CollectionViewController.h */,
+				ECD25B031D3C9AA100388F5F /* CollectionViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -500,6 +510,7 @@
 				ECD7BF171D23B24F007787CF /* CoreTextUtils.m in Sources */,
 				ECD25AFF1D3C7C5000388F5F /* UIImageView+HighlightedWebCache.m in Sources */,
 				ECD25AF61D3C7C5000388F5F /* SDWebImageDecoder.m in Sources */,
+				ECD25B041D3C9AA100388F5F /* CollectionViewController.m in Sources */,
 				ECD25AFA1D3C7C5000388F5F /* SDWebImagePrefetcher.m in Sources */,
 				ECD7BF0D1D23A231007787CF /* ScanImageViewController.m in Sources */,
 				ECFFD9751D2A5BCB006C7A62 /* TransitionFromViewController.m in Sources */,
@@ -509,6 +520,7 @@
 				ECFFD96C1D2A2F13006C7A62 /* InteractiveTransition.m in Sources */,
 				ECD25AFC1D3C7C5000388F5F /* UIImage+GIF.m in Sources */,
 				ECD25B001D3C7C5000388F5F /* UIImageView+WebCache.m in Sources */,
+				ECD25B071D3C9E5800388F5F /* MyCustomCollectionViewLayout.m in Sources */,
 				EC99F1DD1D20B8990076E1F3 /* CTView.m in Sources */,
 				ECD25AF41D3C7C5000388F5F /* SDImageCache.m in Sources */,
 				ECFFD9721D2A5BB9006C7A62 /* TransitionToViewController.m in Sources */,

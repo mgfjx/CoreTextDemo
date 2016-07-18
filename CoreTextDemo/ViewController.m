@@ -13,6 +13,7 @@
 #import "CTFrameParser.h"
 #import "CTFrameParserConfig.h"
 #import "CoreTextData.h"
+#import "CollectionViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
@@ -28,8 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    titleArray = @[@"CoreText", @"ImageFontBackground",@"ImageViewController", @"TransitionAnimation"];
-    controllers = @[@"CoreTextViewController",@"AttributeStringController",@"ImageViewController", @"TransitionFromViewController"];
+    titleArray = @[@"CoreText", @"ImageFontBackground",@"ImageViewController", @"TransitionAnimation",@"CollectionViewController"];
+    controllers = @[@"CoreTextViewController",@"AttributeStringController",@"ImageViewController", @"TransitionFromViewController",@"CollectionViewController"];
     
     UITableView *table = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     table.delegate = self;
