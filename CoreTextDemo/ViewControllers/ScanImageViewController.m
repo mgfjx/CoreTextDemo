@@ -34,6 +34,10 @@
         imgView.image = self.image;
     }
     
+    if (self.imageUrl) {
+        [imgView sd_setImageWithURL:self.imageUrl];
+    }
+    
     self.imageView = imgView;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToDismiss:)];

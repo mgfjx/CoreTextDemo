@@ -8,33 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+@class YLImageScrollView;
+
 @protocol YLImageScrollViewDelegate <NSObject>
-@optional
-  - (void)onClickOnImageIndex:(NSInteger)index;
+
+- (void)imageScrollView:(YLImageScrollView *)imageScrollView didSelectedItemAtIndex:(NSInteger)index;
+
 @end
 
 @protocol YLImageScrollViewDataSource <NSObject>
 
-/**
- delegate must implementation one of methods below
- */
-- (NSArray<UIImage *> *)imageScrollViewImageDataSource;
-- (NSArray<NSURL *> *)imageScrollViewImageURLDataSource;
+- (UIView *)imageScrollView:(YLImageScrollView *)imageScrollView viewForItemAtIndex:(NSInteger)index;
+- (NSInteger)imageScrollViewNumberOfViews;
 
 @end
 
 @interface YLImageScrollView : UIView
 
-@property (nonatomic, weak) id<YLImageScrollViewDelegate  > delegate;
 @property (nonatomic, weak) id<YLImageScrollViewDataSource> dataSource;
-
-@property (nonatomic, assign) BOOL autoScroll;/*auto scroll*/
-@property (nonatomic, assign) NSTimeInterval timeInterval;/*auto scroll interval time*/
-
-@property (nonatomic, assign) BOOL showPageControl;/*show page or not*/
-@property (nonatomic, strong) UIColor *pageCurrentColor;
-@property (nonatomic, strong) UIColor *pageTinkColor;
-
-@property (nonatomic, strong) UIImage *placeHolderImage;
+@property (nonatomic, weak) id<YLImageScrollViewDelegate> delegate;
 
 @end
