@@ -8,6 +8,7 @@
 
 #import "CollectionViewController.h"
 #import "MyCustomCollectionViewLayout.h"
+#import "CircleCollectionViewLayout.h"
 
 @interface CollectionViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>{
     
@@ -32,8 +33,9 @@
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     layout.minimumLineSpacing = 10;
     
+    CircleCollectionViewLayout *circleLayout = [[CircleCollectionViewLayout alloc] init];
     
-    UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectMake(8, 100, self.view.width - 8*2, self.view.height - 300) collectionViewLayout:layout];
+    UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectMake(8, 100, self.view.width - 8*2, self.view.height - 300) collectionViewLayout:circleLayout];
     collection.delegate   = self;
     collection.dataSource = self;
     collection.backgroundColor = [UIColor colorWithWhite:0.800 alpha:1.000];
@@ -52,12 +54,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    if (section == 0) {
-        return 100;
-    }else if(section == 1){
-        return 5;
-    }
-    return 10;
+    return 20;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -65,6 +62,9 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
     cell.backgroundColor = [UIColor randomColor];
+    
+    cell.layer.cornerRadius = cell.bounds.size.width/2;
+    cell.layer.masksToBounds = YES;
     
     return cell;
 }

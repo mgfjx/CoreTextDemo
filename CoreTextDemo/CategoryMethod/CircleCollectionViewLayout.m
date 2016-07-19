@@ -8,13 +8,28 @@
 
 #import "CircleCollectionViewLayout.h"
 
-@interface CircleCollectionViewLayout ()
+@interface CircleCollectionViewLayout (){
+    CGFloat angle;
+    CGFloat averageAngle;
+    CGFloat radius;
+    CGPoint radiusOrigin;
+}
 
 @property (nonatomic, strong) NSArray *layoutInfoArr;
 
 @end
 
 @implementation CircleCollectionViewLayout
+
+- (instancetype)init{
+    self = [super init];
+    if (self) {
+        
+        angle = 0.0f;
+        radius = 150;
+    }
+    return self;
+}
 
 - (void)prepareLayout{
     [super prepareLayout];
@@ -23,6 +38,7 @@
     
     NSInteger numberOfSection = [self.collectionView numberOfSections];
     
+    /*
     for (NSInteger section = 0; section < numberOfSection; section ++) {
         NSInteger numberOfItem = [self.collectionView numberOfItemsInSection:section];
         NSMutableArray *sectionInfoArr = [NSMutableArray arrayWithCapacity:numberOfItem];
@@ -32,30 +48,46 @@
         }
         [layoutInfoArr addObject:[sectionInfoArr copy]];
     }
+     */
     
     self.layoutInfoArr = [layoutInfoArr copy];
+    
+    NSInteger numberOfItems = [self.collectionView numberOfItemsInSection:0];
+    
+    averageAngle = 2*M_PI/numberOfItems;
+    
+    radiusOrigin = CGPointMake(self.collectionView.width/2, self.collectionView.height/2);
 }
 
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect{
-    NSMutableArray *attributesArr = [NSMutableArray array];
     
-    [self.layoutInfoArr enumerateObjectsUsingBlock:^(NSArray *subArray, NSUInteger idx, BOOL * _Nonnull stop) {
-        [subArray enumerateObjectsUsingBlock:^(UICollectionViewLayoutAttributes *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (CGRectIntersectsRect(obj.frame, rect)) {
-                [attributesArr addObject:obj];
-            }
-        }];
-    }];
+    NSMutableArray *attrArr = [NSMutableArray array];
     
-    return [attributesArr copy];
+    for (int i = 0; i < [self.collectionView numberOfItemsInSection:0]; i++) {
+        
+        UICollectionViewLayoutAttributes *a = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
+        [attrArr addObject:a];
+    }
+    
+    return [attrArr copy];
 }
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     
+    CGFloat currentAngle = indexPath.row * averageAngle;
+    CGFloat x = cos(currentAngle)*radius + radiusOrigin.x;
+    CGFloat y = sin(currentAngle)*radius + radiusOrigin.y;
+    
+    attributes.frame = CGRectMake(0, 0, 30, 30);
+    attributes.center = CGPointMake(x, y);
     
     return attributes;
+}
+
+- (CGSize)collectionViewContentSize{
+    return CGSizeMake(self.collectionView.bounds.size.width, self.collectionView.bounds.size.height);
 }
 
 @end
