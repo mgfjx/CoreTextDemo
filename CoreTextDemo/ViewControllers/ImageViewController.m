@@ -65,7 +65,7 @@
 - (void)imageScrollView:(YLImageScrollView *)imageScrollView didSelectedItemAtIndex:(NSInteger)index{
     ScanImageViewController *vc = [[ScanImageViewController alloc] init];
     vc.imageUrl = [NSURL URLWithString:imagesArray[index]];
-    [self presentViewController:vc animated:YES completion:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

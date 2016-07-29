@@ -35,7 +35,7 @@
     
     CircleCollectionViewLayout *circleLayout = [[CircleCollectionViewLayout alloc] init];
     
-    UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectMake(8, 100, self.view.width - 8*2, self.view.height - 300) collectionViewLayout:circleLayout];
+    UICollectionView *collection = [[UICollectionView alloc] initWithFrame:CGRectMake(8, 100, self.view.width - 8*2, self.view.height - 300) collectionViewLayout:layout];
     collection.delegate   = self;
     collection.dataSource = self;
     collection.backgroundColor = [UIColor colorWithWhite:0.800 alpha:1.000];

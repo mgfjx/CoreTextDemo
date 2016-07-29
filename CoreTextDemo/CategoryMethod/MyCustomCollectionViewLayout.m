@@ -147,4 +147,10 @@
     return layoutAttributeArr;
 }
 
+- (void)prepareForCollectionViewUpdates:(NSArray<UICollectionViewUpdateItem *> *)updateItems{
+    
+    NSLog(@"hehe");
+    
+}
+
 @end

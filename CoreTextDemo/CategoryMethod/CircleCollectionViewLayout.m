@@ -36,9 +36,9 @@
     
     NSMutableArray *layoutInfoArr = [NSMutableArray array];
     
+    /*
     NSInteger numberOfSection = [self.collectionView numberOfSections];
     
-    /*
     for (NSInteger section = 0; section < numberOfSection; section ++) {
         NSInteger numberOfItem = [self.collectionView numberOfItemsInSection:section];
         NSMutableArray *sectionInfoArr = [NSMutableArray arrayWithCapacity:numberOfItem];
